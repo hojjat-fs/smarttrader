@@ -10523,6 +10523,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
 var BinarySocket = __webpack_require__(/*! ./socket */ "./src/javascript/app/base/socket.js");
 var Defaults = __webpack_require__(/*! ../pages/trade/defaults */ "./src/javascript/app/pages/trade/defaults.js");
 var RealityCheckData = __webpack_require__(/*! ../pages/user/reality_check/reality_check.data */ "./src/javascript/app/pages/user/reality_check/reality_check.data.js");
@@ -10605,28 +10607,56 @@ var Client = function () {
         });
     };
 
-    var doLogout = function doLogout(response) {
-        if (response.logout !== 1) return;
-        removeCookies('login', 'loginid', 'loginid_list', 'email', 'residence', 'settings'); // backward compatibility
-        removeCookies('reality_check', 'affiliate_token', 'affiliate_tracking', 'onfido_token');
-        // clear elev.io session storage
-        sessionStorage.removeItem('_elevaddon-6app');
-        sessionStorage.removeItem('_elevaddon-6create');
-        // clear trading session
-        Defaults.remove('underlying', 'market');
-        ClientBase.clearAllAccounts();
-        ClientBase.set('loginid', '');
-        SocketCache.clear();
-        RealityCheckData.clear();
-        LiveChat.endLiveChat().finally(function () {
-            var redirect_to = getPropertyValue(response, ['echo_req', 'passthrough', 'redirect_to']);
-            if (redirect_to) {
-                window.location.href = redirect_to;
-            } else {
-                window.location.reload();
-            }
-        });
-    };
+    var doLogout = function () {
+        var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(response) {
+            var redirect_to;
+            return regeneratorRuntime.wrap(function _callee$(_context) {
+                while (1) {
+                    switch (_context.prev = _context.next) {
+                        case 0:
+                            if (!(response.logout !== 1)) {
+                                _context.next = 2;
+                                break;
+                            }
+
+                            return _context.abrupt('return');
+
+                        case 2:
+                            removeCookies('login', 'loginid', 'loginid_list', 'email', 'residence', 'settings'); // backward compatibility
+                            removeCookies('reality_check', 'affiliate_token', 'affiliate_tracking', 'onfido_token');
+                            // clear elev.io session storage
+                            sessionStorage.removeItem('_elevaddon-6app');
+                            sessionStorage.removeItem('_elevaddon-6create');
+                            // clear trading session
+                            Defaults.remove('underlying', 'market');
+                            ClientBase.clearAllAccounts();
+                            ClientBase.set('loginid', '');
+                            SocketCache.clear();
+                            RealityCheckData.clear();
+                            _context.next = 13;
+                            return LiveChat.endLiveChat();
+
+                        case 13:
+                            redirect_to = getPropertyValue(response, ['echo_req', 'passthrough', 'redirect_to']);
+
+                            if (redirect_to) {
+                                window.location.href = redirect_to;
+                            } else {
+                                window.location.reload();
+                            }
+
+                        case 15:
+                        case 'end':
+                            return _context.stop();
+                    }
+                }
+            }, _callee, undefined);
+        }));
+
+        return function doLogout(_x) {
+            return _ref.apply(this, arguments);
+        };
+    }();
 
     var getUpgradeInfo = function getUpgradeInfo() {
         var upgrade_info = ClientBase.getBasicUpgradeInfo();
