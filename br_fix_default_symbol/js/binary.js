@@ -10618,7 +10618,7 @@ var Client = function () {
         ClientBase.set('loginid', '');
         SocketCache.clear();
         RealityCheckData.clear();
-        LiveChat.endLiveChat().then(function () {
+        LiveChat.endLiveChat().finally(function () {
             var redirect_to = getPropertyValue(response, ['echo_req', 'passthrough', 'redirect_to']);
             if (redirect_to) {
                 window.location.href = redirect_to;
