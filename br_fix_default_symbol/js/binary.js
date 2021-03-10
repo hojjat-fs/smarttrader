@@ -10531,7 +10531,6 @@ var RealityCheckData = __webpack_require__(/*! ../pages/user/reality_check/reali
 var ClientBase = __webpack_require__(/*! ../../_common/base/client_base */ "./src/javascript/_common/base/client_base.js");
 var GTM = __webpack_require__(/*! ../../_common/base/gtm */ "./src/javascript/_common/base/gtm.js");
 var SocketCache = __webpack_require__(/*! ../../_common/base/socket_cache */ "./src/javascript/_common/base/socket_cache.js");
-var LiveChat = __webpack_require__(/*! ../../_common/base/livechat */ "./src/javascript/_common/base/livechat.js");
 var getElementById = __webpack_require__(/*! ../../_common/common_functions */ "./src/javascript/_common/common_functions.js").getElementById;
 var removeCookies = __webpack_require__(/*! ../../_common/storage */ "./src/javascript/_common/storage.js").removeCookies;
 var urlFor = __webpack_require__(/*! ../../_common/url */ "./src/javascript/_common/url.js").urlFor;
@@ -10633,10 +10632,6 @@ var Client = function () {
                             ClientBase.set('loginid', '');
                             SocketCache.clear();
                             RealityCheckData.clear();
-                            _context.next = 13;
-                            return LiveChat.endLiveChat();
-
-                        case 13:
                             redirect_to = getPropertyValue(response, ['echo_req', 'passthrough', 'redirect_to']);
 
                             if (redirect_to) {
@@ -10645,7 +10640,7 @@ var Client = function () {
                                 window.location.reload();
                             }
 
-                        case 15:
+                        case 13:
                         case 'end':
                             return _context.stop();
                     }
