@@ -10523,14 +10523,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-
 var BinarySocket = __webpack_require__(/*! ./socket */ "./src/javascript/app/base/socket.js");
 var Defaults = __webpack_require__(/*! ../pages/trade/defaults */ "./src/javascript/app/pages/trade/defaults.js");
 var RealityCheckData = __webpack_require__(/*! ../pages/user/reality_check/reality_check.data */ "./src/javascript/app/pages/user/reality_check/reality_check.data.js");
 var ClientBase = __webpack_require__(/*! ../../_common/base/client_base */ "./src/javascript/_common/base/client_base.js");
 var GTM = __webpack_require__(/*! ../../_common/base/gtm */ "./src/javascript/_common/base/gtm.js");
 var SocketCache = __webpack_require__(/*! ../../_common/base/socket_cache */ "./src/javascript/_common/base/socket_cache.js");
+var LiveChat = __webpack_require__(/*! ../../_common/base/livechat */ "./src/javascript/_common/base/livechat.js");
 var getElementById = __webpack_require__(/*! ../../_common/common_functions */ "./src/javascript/_common/common_functions.js").getElementById;
 var removeCookies = __webpack_require__(/*! ../../_common/storage */ "./src/javascript/_common/storage.js").removeCookies;
 var urlFor = __webpack_require__(/*! ../../_common/url */ "./src/javascript/_common/url.js").urlFor;
@@ -10606,52 +10605,28 @@ var Client = function () {
         });
     };
 
-    var doLogout = function () {
-        var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(response) {
-            var redirect_to;
-            return regeneratorRuntime.wrap(function _callee$(_context) {
-                while (1) {
-                    switch (_context.prev = _context.next) {
-                        case 0:
-                            if (!(response.logout !== 1)) {
-                                _context.next = 2;
-                                break;
-                            }
-
-                            return _context.abrupt('return');
-
-                        case 2:
-                            removeCookies('login', 'loginid', 'loginid_list', 'email', 'residence', 'settings'); // backward compatibility
-                            removeCookies('reality_check', 'affiliate_token', 'affiliate_tracking', 'onfido_token');
-                            // clear elev.io session storage
-                            sessionStorage.removeItem('_elevaddon-6app');
-                            sessionStorage.removeItem('_elevaddon-6create');
-                            // clear trading session
-                            Defaults.remove('underlying', 'market');
-                            ClientBase.clearAllAccounts();
-                            ClientBase.set('loginid', '');
-                            SocketCache.clear();
-                            RealityCheckData.clear();
-                            redirect_to = getPropertyValue(response, ['echo_req', 'passthrough', 'redirect_to']);
-
-                            if (redirect_to) {
-                                window.location.href = redirect_to;
-                            } else {
-                                window.location.reload();
-                            }
-
-                        case 13:
-                        case 'end':
-                            return _context.stop();
-                    }
-                }
-            }, _callee, undefined);
-        }));
-
-        return function doLogout(_x) {
-            return _ref.apply(this, arguments);
-        };
-    }();
+    var doLogout = function doLogout(response) {
+        if (response.logout !== 1) return;
+        removeCookies('login', 'loginid', 'loginid_list', 'email', 'residence', 'settings'); // backward compatibility
+        removeCookies('reality_check', 'affiliate_token', 'affiliate_tracking', 'onfido_token');
+        // clear elev.io session storage
+        sessionStorage.removeItem('_elevaddon-6app');
+        sessionStorage.removeItem('_elevaddon-6create');
+        // clear trading session
+        Defaults.remove('underlying', 'market');
+        ClientBase.clearAllAccounts();
+        ClientBase.set('loginid', '');
+        SocketCache.clear();
+        RealityCheckData.clear();
+        LiveChat.endLiveChat().then(function () {
+            var redirect_to = getPropertyValue(response, ['echo_req', 'passthrough', 'redirect_to']);
+            if (redirect_to) {
+                window.location.href = redirect_to;
+            } else {
+                window.location.reload();
+            }
+        });
+    };
 
     var getUpgradeInfo = function getUpgradeInfo() {
         var upgrade_info = ClientBase.getBasicUpgradeInfo();
