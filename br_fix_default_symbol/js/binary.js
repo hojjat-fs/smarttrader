@@ -1445,7 +1445,7 @@ var LiveChat = function () {
                             chatId = _window$LiveChatWidge.chatId,
                             threadId = _window$LiveChatWidge.threadId;
 
-                        if (threadId) {
+                        if (threadId && chatId) {
                             customerSDK.deactivateChat({ chatId: chatId });
                         }
                     }
