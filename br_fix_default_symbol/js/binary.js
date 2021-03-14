@@ -1054,6 +1054,10 @@ var Elevio = function () {
             // eslint-disable-line no-underscore-dangle
             GTM.pushDataLayer({ event: 'elevio_widget_opened' });
         });
+        window._elev.on('page:view', function () {
+            // eslint-disable-line no-underscore-dangle
+            GTM.pushDataLayer({ event: 'elevio_page_views' });
+        });
     };
 
     var makeLauncherVisible = function makeLauncherVisible() {
@@ -1353,7 +1357,6 @@ var BinarySocket = __webpack_require__(/*! ./socket_base */ "./src/javascript/_c
 var ClientBase = __webpack_require__(/*! ./client_base */ "./src/javascript/_common/base/client_base.js");
 
 var LiveChat = function () {
-
     var licenseID = 12049137;
     var clientID = '66aa088aad5a414484c1fd1fa8a5ace7';
     var session_variables = { loginid: '', landing_company_shortcode: '', currency: '', residence: '', email: '' };
@@ -1445,8 +1448,10 @@ var LiveChat = function () {
                             chatId = _window$LiveChatWidge.chatId,
                             threadId = _window$LiveChatWidge.threadId;
 
-                        if (threadId && chatId) {
-                            customerSDK.deactivateChat({ chatId: chatId });
+                        if (threadId) {
+                            customerSDK.deactivateChat({ chatId: chatId }).catch(function () {
+                                return null;
+                            });
                         }
                     }
                     resolve();
@@ -2929,6 +2934,61 @@ var Crowdin = function () {
 }();
 
 module.exports = Crowdin;
+
+/***/ }),
+
+/***/ "./src/javascript/_common/gtm.js":
+/*!***************************************!*\
+  !*** ./src/javascript/_common/gtm.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Cookies = __webpack_require__(/*! js-cookie */ "./node_modules/js-cookie/src/js.cookie.js");
+var createElement = __webpack_require__(/*! ./utility */ "./src/javascript/_common/utility.js").createElement;
+var BinarySocket = __webpack_require__(/*! ../app/base/socket */ "./src/javascript/app/base/socket.js");
+var isEuCountry = __webpack_require__(/*! ../app/common/country_base */ "./src/javascript/app/common/country_base.js").isEuCountry;
+
+var GTM = function () {
+
+    var loadGTMElements = function loadGTMElements() {
+        if (document.body) {
+            var noscript = createElement('noscript');
+            noscript.innerHTML = '<iframe src="//www.googletagmanager.com/ns.html?id=GTM-MZWFF7" height="0" width="0" style={{display: "none", visibility: "hidden"}}></iframe>';
+
+            document.body.appendChild(noscript);
+            document.body.appendChild(createElement('script', {
+                'data-cfasync': 'false',
+                html: '(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="//www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);})(window,document,"script","dataLayer","GTM-MZWFF7");'
+            }));
+        }
+    };
+
+    /**
+     * initialize GTM appending script to body
+     */
+    var init = function init() {
+        BinarySocket.wait('website_status', 'landing_company').then(function () {
+            if (isEuCountry()) {
+                if (Cookies.get('CookieConsent')) {
+                    loadGTMElements();
+                }
+            } else {
+                loadGTMElements();
+            }
+        });
+    };
+
+    return {
+        init: init,
+        loadGTMElements: loadGTMElements
+    };
+}();
+
+module.exports = GTM;
 
 /***/ }),
 
@@ -9801,6 +9861,12 @@ var findParent = function findParent(el, selector) {
     return null;
 };
 
+var isBinaryDomain = function isBinaryDomain() {
+    var url = new URL(window.location.href);
+    var domain = url.hostname.split('.').slice(-2).join('.');
+    return domain === 'binary.com';
+};
+
 var static_hash = void 0;
 var getStaticHash = function getStaticHash() {
     static_hash = static_hash || (document.querySelector('script[src*="binary"]').getAttribute('src') || '').split('?')[1];
@@ -9823,6 +9889,7 @@ module.exports = {
     getHighestZIndex: getHighestZIndex,
     downloadCSV: downloadCSV,
     template: template,
+    isBinaryDomain: isBinaryDomain,
     isEmptyObject: isEmptyObject,
     isLoginPages: isLoginPages,
     cloneObject: cloneObject,
@@ -10530,6 +10597,10 @@ var ClientBase = __webpack_require__(/*! ../../_common/base/client_base */ "./sr
 var GTM = __webpack_require__(/*! ../../_common/base/gtm */ "./src/javascript/_common/base/gtm.js");
 var SocketCache = __webpack_require__(/*! ../../_common/base/socket_cache */ "./src/javascript/_common/base/socket_cache.js");
 var LiveChat = __webpack_require__(/*! ../../_common/base/livechat */ "./src/javascript/_common/base/livechat.js");
+
+var _require = __webpack_require__(/*! ../../_common/utility */ "./src/javascript/_common/utility.js"),
+    isBinaryDomain = _require.isBinaryDomain;
+
 var getElementById = __webpack_require__(/*! ../../_common/common_functions */ "./src/javascript/_common/common_functions.js").getElementById;
 var removeCookies = __webpack_require__(/*! ../../_common/storage */ "./src/javascript/_common/storage.js").removeCookies;
 var urlFor = __webpack_require__(/*! ../../_common/url */ "./src/javascript/_common/url.js").urlFor;
@@ -10605,7 +10676,17 @@ var Client = function () {
         });
     };
 
+    var redirection = function redirection(response) {
+        var redirect_to = getPropertyValue(response, ['echo_req', 'passthrough', 'redirect_to']);
+        if (redirect_to) {
+            window.location.href = redirect_to;
+        } else {
+            window.location.reload();
+        }
+    };
+
     var doLogout = function doLogout(response) {
+
         if (response.logout !== 1) return;
         removeCookies('login', 'loginid', 'loginid_list', 'email', 'residence', 'settings'); // backward compatibility
         removeCookies('reality_check', 'affiliate_token', 'affiliate_tracking', 'onfido_token');
@@ -10618,14 +10699,13 @@ var Client = function () {
         ClientBase.set('loginid', '');
         SocketCache.clear();
         RealityCheckData.clear();
-        LiveChat.endLiveChat().then(function () {
-            var redirect_to = getPropertyValue(response, ['echo_req', 'passthrough', 'redirect_to']);
-            if (redirect_to) {
-                window.location.href = redirect_to;
-            } else {
-                window.location.reload();
-            }
-        });
+        if (isBinaryDomain()) {
+            LiveChat.endLiveChat().then(function () {
+                redirection(response);
+            });
+        } else {
+            redirection(response);
+        }
     };
 
     var getUpgradeInfo = function getUpgradeInfo() {
@@ -10787,6 +10867,8 @@ var BinarySocket = __webpack_require__(/*! ./socket */ "./src/javascript/app/bas
 var Client = __webpack_require__(/*! ../base/client */ "./src/javascript/app/base/client.js");
 var isEuCountry = __webpack_require__(/*! ../common/country_base */ "./src/javascript/app/common/country_base.js").isEuCountry;
 var getElementById = __webpack_require__(/*! ../../_common/common_functions */ "./src/javascript/_common/common_functions.js").getElementById;
+var GTM = __webpack_require__(/*! ../../_common/gtm */ "./src/javascript/_common/gtm.js");
+var GTMStore = __webpack_require__(/*! ../../_common/base/gtm */ "./src/javascript/_common/base/gtm.js");
 var LocalStore = __webpack_require__(/*! ../../_common/storage */ "./src/javascript/_common/storage.js").LocalStore;
 var State = __webpack_require__(/*! ../../_common/storage */ "./src/javascript/_common/storage.js").State;
 
@@ -10862,6 +10944,8 @@ var Footer = function () {
                     el_footer.style.paddingBottom = '0px';
                     $status_notification.css('bottom', gap_to_notification + 'px');
                     Cookies.set('CookieConsent', 1, { sameSite: 'strict', secure: true });
+                    GTM.loadGTMElements();
+                    GTMStore.pushDataLayer({ event: 'page_load' });
                 });
                 window.addEventListener('resize', function () {
                     adjustElevioAndScrollup($dialog_notification.height() + gap_dialog_to_elevio, $dialog_notification.height() + gap_dialog_to_elevio + gap_elevio_to_scrollup);
@@ -11360,7 +11444,7 @@ var Header = function () {
                     return buildMessage(localizeKeepPlaceholders('Please [_1]complete your account profile[_2] to lift your withdrawal and trading limits.'), 'user/settings/detailsws');
                 },
                 unwelcome: function unwelcome() {
-                    return buildMessage('Trading and deposits have been disabled on your account. Kindly allow us some time to review the account.');
+                    return localize('Trading and deposits have been disabled on your account. Kindly allow us some time to review the account.');
                 },
                 withdrawal_locked_review: function withdrawal_locked_review() {
                     return localize('Withdrawals have been disabled on your account. Please wait until your uploaded documents are verified.');
@@ -11771,6 +11855,7 @@ var ClientBase = __webpack_require__(/*! ../../_common/base/client_base */ "./sr
 var elementInnerHtml = __webpack_require__(/*! ../../_common/common_functions */ "./src/javascript/_common/common_functions.js").elementInnerHtml;
 var getElementById = __webpack_require__(/*! ../../_common/common_functions */ "./src/javascript/_common/common_functions.js").getElementById;
 var Crowdin = __webpack_require__(/*! ../../_common/crowdin */ "./src/javascript/_common/crowdin.js");
+var GTM = __webpack_require__(/*! ../../_common/gtm */ "./src/javascript/_common/gtm.js");
 var Language = __webpack_require__(/*! ../../_common/language */ "./src/javascript/_common/language.js");
 var PushNotification = __webpack_require__(/*! ../../_common/lib/push_notification */ "./src/javascript/_common/lib/push_notification.js");
 var localize = __webpack_require__(/*! ../../_common/localize */ "./src/javascript/_common/localize.js").localize;
@@ -11792,6 +11877,7 @@ var Page = function () {
         Url.init();
         Elevio.init();
         PushNotification.init();
+        GTM.init();
         onDocumentReady();
         Crowdin.init();
     };
@@ -12509,7 +12595,7 @@ var AccountOpening = function () {
     var commonValidations = function commonValidations() {
         var req = [{ selector: '#salutation', validations: ['req'] }, { selector: '#first_name', validations: ['req', 'letter_symbol', ['length', { min: 2, max: 50 }]] }, { selector: '#last_name', validations: ['req', 'letter_symbol', ['length', { min: 2, max: 50 }]] }, { selector: '#date_of_birth', validations: ['req'] }, { selector: '#address_line_1', validations: ['req', 'address', ['length', { min: 1, max: 70 }]] }, { selector: '#address_line_2', validations: ['address', ['length', { min: 0, max: 70 }]] }, { selector: '#address_city', validations: ['req', 'letter_symbol', ['length', { min: 1, max: 35 }]] }, { selector: '#address_state', validations: $('#address_state').prop('nodeName') === 'SELECT' ? '' : ['letter_symbol', ['length', { min: 0, max: 35 }]] }, { selector: '#address_postcode', validations: [Client.get('residence') === 'gb' || State.getResponse('authorize.upgradeable_landing_companies').some(function (lc) {
                 return lc === 'iom';
-            }) ? 'req' : '', 'postcode', ['length', { min: 0, max: 20 }]] }, { selector: '#phone', validations: ['req', 'phone', ['length', { min: 8, max: 35, value: function value() {
+            }) ? 'req' : '', 'postcode', ['length', { min: 0, max: 20 }]] }, { selector: '#phone', validations: ['req', 'phone', ['length', { min: 9, max: 35, value: function value() {
                     return $('#phone').val().replace(/\D/g, '');
                 } }]] }, { selector: '#secret_question', validations: ['req'] }, { selector: '#secret_answer', validations: ['req', 'general', ['length', { min: 4, max: 50 }]] }, { selector: '#tnc', validations: [['req', { message: localize('Please accept the terms and conditions.') }]], exclude_request: 1 }, { selector: '#tax_residence', validations: ['req', ['length', { min: 1, max: 20 }]] }, { selector: '#tax_identification_number', validations: ['req'] }, { request_field: 'residence', value: Client.get('residence') }, { request_field: 'client_type', value: function value() {
                 return $('#chk_professional').is(':checked') ? 'professional' : 'retail';
@@ -14384,7 +14470,7 @@ var Validation = function () {
         return value === '' || /^[A-Za-z0-9][A-Za-z0-9\s-]*$/.test(value);
     };
     var validPhone = function validPhone(value) {
-        return (/^\+((-|\s)*[0-9])*$/.test(value)
+        return (/^\+?((-|\s)*[0-9])*$/.test(value)
         );
     };
     var validRegular = function validRegular(value, options) {
@@ -14497,7 +14583,7 @@ var Validation = function () {
                 address: { func: validAddress, message: localize('Only letters, numbers, space, and these special characters are allowed: [_1]', '- . \' # ; : ( ) , @ /') },
                 letter_symbol: { func: validLetterSymbol, message: localize('Only letters, space, hyphen, period, and apostrophe are allowed.') },
                 postcode: { func: validPostCode, message: localize('Only letters, numbers, space, and hyphen are allowed.') },
-                phone: { func: validPhone, message: localize('Please enter a valid phone number, including the country code (e.g. +15417541234).') },
+                phone: { func: validPhone, message: localize('Please enter a valid phone number (e.g. +15417541234).') },
                 compare: { func: validCompare, message: localize('The two passwords that you entered do not match.') },
                 not_equal: { func: validNotEqual, message: localizeKeepPlaceholders('[_1] and [_2] cannot be the same.') },
                 min: { func: validMin, message: localizeKeepPlaceholders('Minimum of [_1] characters required.') },
@@ -26798,6 +26884,7 @@ var Authenticate = function () {
     var is_any_upload_failed = false;
     var is_any_upload_failed_uns = false;
     var onfido_unsupported = false;
+    var authentication_object = {};
     var file_checks = {};
     var file_checks_uns = {};
     var onfido = void 0,
@@ -27521,6 +27608,7 @@ var Authenticate = function () {
             $button.setVisibility(0);
             $('.submit-status').setVisibility(0);
             $('#not_authenticated').setVisibility(0);
+            showCTAButton('identity', 'pending');
             $('#pending_poa').setVisibility(1);
         });
     };
@@ -27532,6 +27620,8 @@ var Authenticate = function () {
             $button_uns.setVisibility(0);
             $('.submit-status-uns').setVisibility(0);
             $('#not_authenticated_uns').setVisibility(0);
+
+            showCTAButton('document', 'pending');
             $('#upload_complete').setVisibility(1);
         });
     };
@@ -27652,6 +27742,22 @@ var Authenticate = function () {
         };
     }();
 
+    var showCTAButton = function showCTAButton(type, status) {
+        var _authentication_objec = authentication_object,
+            needs_verification = _authentication_objec.needs_verification;
+
+        var type_required = type === 'identity' ? 'poi' : 'poa';
+        var type_pending = type === 'identity' ? 'poa' : 'poi';
+        var description_status = status !== 'verified';
+
+        if (needs_verification.includes(type)) {
+            $('#text_' + status + '_' + type_required + '_required').setVisibility(1);
+            $('#button_' + status + '_' + type_required + '_required').setVisibility(1);
+        } else if (description_status) {
+            $('#text_' + status + '_' + type_pending + '_pending').setVisibility(1);
+        }
+    };
+
     var handleComplete = function handleComplete() {
         BinarySocket.send({
             notification_event: 1,
@@ -27665,6 +27771,8 @@ var Authenticate = function () {
                     $('#upload_complete').setVisibility(1);
                     Header.displayAccountStatus();
                     $('#authentication_loading').setVisibility(0);
+
+                    showCTAButton('document', 'pending');
                 });
             }, 4000);
         });
@@ -27708,9 +27816,14 @@ var Authenticate = function () {
         return !is_not_required;
     };
 
+    var cleanElementVisibility = function cleanElementVisibility() {
+        $('#personal_details_error').setVisibility(0);
+        $('#limited_poi').setVisibility(0);
+    };
+
     var initAuthentication = function () {
         var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-            var has_personal_details_error, authentication_status, service_token_response, personal_fields_errors, missing_personal_fields, error_msgs, identity, needs_verification, document, is_fully_authenticated, should_allow_resubmission, documents_supported, country_code;
+            var has_personal_details_error, authentication_status, service_token_response, personal_fields_errors, missing_personal_fields, error_msgs, identity, needs_verification, document, is_fully_authenticated, should_allow_resubmission, documents_supported, country_code, has_submission_attempts, is_rejected, last_rejected_reasons, has_rejected_reasons, maximum_reasons, has_minimum_reasons;
             return regeneratorRuntime.wrap(function _callee2$(_context2) {
                 while (1) {
                     switch (_context2.prev = _context2.next) {
@@ -27761,12 +27874,19 @@ var Authenticate = function () {
                             }
 
                             identity = authentication_status.identity, needs_verification = authentication_status.needs_verification, document = authentication_status.document;
+
+                            authentication_object = authentication_status;
+
                             is_fully_authenticated = identity.status === 'verified' && document.status === 'verified';
                             should_allow_resubmission = needs_verification.includes('identity') || needs_verification.includes('document');
 
                             onfido_unsupported = !identity.services.onfido.is_country_supported;
                             documents_supported = identity.services.onfido.documents_supported;
                             country_code = identity.services.onfido.country_code;
+                            has_submission_attempts = !!identity.services.onfido.submissions_left;
+                            is_rejected = identity.status === 'rejected' || identity.status === 'suspected';
+                            last_rejected_reasons = identity.services.onfido.last_rejected;
+                            has_rejected_reasons = !!last_rejected_reasons.length && is_rejected;
 
 
                             if (is_fully_authenticated && !should_allow_resubmission) {
@@ -27775,17 +27895,79 @@ var Authenticate = function () {
                             }
 
                             if (!has_personal_details_error) {
-                                _context2.next = 23;
+                                _context2.next = 28;
                                 break;
                             }
 
                             $('#personal_details_error').setVisibility(1);
-                            _context2.next = 44;
+                            _context2.next = 64;
                             break;
 
-                        case 23:
+                        case 28:
+                            if (!(has_rejected_reasons && has_submission_attempts)) {
+                                _context2.next = 37;
+                                break;
+                            }
+
+                            maximum_reasons = last_rejected_reasons.slice(0, 3);
+                            has_minimum_reasons = last_rejected_reasons.length > 3;
+
+                            $('#last_rejection_poi').setVisibility(1);
+
+                            maximum_reasons.forEach(function (reason) {
+                                $('#last_rejection_list').append('<li>' + reason + '</li>');
+                            });
+
+                            $('#last_rejection_button').off('click').on('click', function () {
+                                $('#last_rejection_poi').setVisibility(0);
+
+                                if (onfido_unsupported) {
+                                    $('#not_authenticated_uns').setVisibility(1);
+                                    initUnsupported();
+                                } else {
+                                    initOnfido(service_token_response.token, documents_supported, country_code);
+                                }
+                            });
+                            if (has_minimum_reasons) {
+                                $('#last_rejection_more').setVisibility(1);
+                                $('#last_rejection_more').off('click').on('click', function () {
+                                    $('#last_rejection_more').setVisibility(0);
+                                    $('#last_rejection_less').setVisibility(1);
+
+                                    $('#last_rejection_list').empty();
+
+                                    last_rejected_reasons.forEach(function (reason) {
+                                        $('#last_rejection_list').append('<li>' + reason + '</li>');
+                                    });
+                                });
+                                $('#last_rejection_less').off('click').on('click', function () {
+                                    $('#last_rejection_less').setVisibility(0);
+                                    $('#last_rejection_more').setVisibility(1);
+
+                                    $('#last_rejection_list').empty();
+
+                                    maximum_reasons.forEach(function (reason) {
+                                        $('#last_rejection_list').append('<li>' + reason + '</li>');
+                                    });
+                                });
+                            }
+
+                            _context2.next = 64;
+                            break;
+
+                        case 37:
+                            if (!(!has_submission_attempts && is_rejected)) {
+                                _context2.next = 41;
+                                break;
+                            }
+
+                            $('#limited_poi').setVisibility(1);
+                            _context2.next = 64;
+                            break;
+
+                        case 41:
                             if (needs_verification.includes('identity')) {
-                                _context2.next = 43;
+                                _context2.next = 63;
                                 break;
                             }
 
@@ -27794,46 +27976,49 @@ var Authenticate = function () {
                                 Url.updateParamsWithoutReload({ authentication_tab: 'poa' }, true);
                             }
                             _context2.t0 = identity.status;
-                            _context2.next = _context2.t0 === 'none' ? 28 : _context2.t0 === 'pending' ? 30 : _context2.t0 === 'rejected' ? 32 : _context2.t0 === 'verified' ? 34 : _context2.t0 === 'expired' ? 36 : _context2.t0 === 'suspected' ? 38 : 40;
+                            _context2.next = _context2.t0 === 'none' ? 46 : _context2.t0 === 'pending' ? 48 : _context2.t0 === 'rejected' ? 51 : _context2.t0 === 'verified' ? 53 : _context2.t0 === 'expired' ? 56 : _context2.t0 === 'suspected' ? 58 : 60;
                             break;
 
-                        case 28:
+                        case 46:
                             if (onfido_unsupported) {
                                 $('#not_authenticated_uns').setVisibility(1);
                                 initUnsupported();
                             } else {
                                 initOnfido(service_token_response.token, documents_supported, country_code);
                             }
-                            return _context2.abrupt('break', 41);
+                            return _context2.abrupt('break', 61);
 
-                        case 30:
+                        case 48:
+                            showCTAButton('document', 'pending');
+
                             $('#upload_complete').setVisibility(1);
-                            return _context2.abrupt('break', 41);
+                            return _context2.abrupt('break', 61);
 
-                        case 32:
+                        case 51:
                             $('#unverified').setVisibility(1);
-                            return _context2.abrupt('break', 41);
+                            return _context2.abrupt('break', 61);
 
-                        case 34:
+                        case 53:
+                            showCTAButton('document', 'verified');
                             $('#verified').setVisibility(1);
-                            return _context2.abrupt('break', 41);
+                            return _context2.abrupt('break', 61);
 
-                        case 36:
+                        case 56:
                             $('#expired_poi').setVisibility(1);
-                            return _context2.abrupt('break', 41);
+                            return _context2.abrupt('break', 61);
 
-                        case 38:
+                        case 58:
                             $('#unverified').setVisibility(1);
-                            return _context2.abrupt('break', 41);
+                            return _context2.abrupt('break', 61);
 
-                        case 40:
-                            return _context2.abrupt('break', 41);
+                        case 60:
+                            return _context2.abrupt('break', 61);
 
-                        case 41:
-                            _context2.next = 44;
+                        case 61:
+                            _context2.next = 64;
                             break;
 
-                        case 43:
+                        case 63:
                             // eslint-disable-next-line no-lonely-if
                             if (onfido_unsupported) {
                                 $('#not_authenticated_uns').setVisibility(1);
@@ -27842,58 +28027,60 @@ var Authenticate = function () {
                                 initOnfido(service_token_response.token, documents_supported, country_code);
                             }
 
-                        case 44:
+                        case 64:
                             if (needs_verification.includes('document')) {
-                                _context2.next = 64;
+                                _context2.next = 86;
                                 break;
                             }
 
                             _context2.t1 = document.status;
-                            _context2.next = _context2.t1 === 'none' ? 48 : _context2.t1 === 'pending' ? 51 : _context2.t1 === 'rejected' ? 53 : _context2.t1 === 'suspected' ? 55 : _context2.t1 === 'verified' ? 57 : _context2.t1 === 'expired' ? 59 : 61;
+                            _context2.next = _context2.t1 === 'none' ? 68 : _context2.t1 === 'pending' ? 71 : _context2.t1 === 'rejected' ? 74 : _context2.t1 === 'suspected' ? 76 : _context2.t1 === 'verified' ? 78 : _context2.t1 === 'expired' ? 81 : 83;
                             break;
 
-                        case 48:
+                        case 68:
                             init();
                             $('#not_authenticated').setVisibility(1);
-                            return _context2.abrupt('break', 62);
+                            return _context2.abrupt('break', 84);
 
-                        case 51:
+                        case 71:
+                            showCTAButton('identity', 'pending');
                             $('#pending_poa').setVisibility(1);
-                            return _context2.abrupt('break', 62);
+                            return _context2.abrupt('break', 84);
 
-                        case 53:
+                        case 74:
                             $('#unverified_poa').setVisibility(1);
-                            return _context2.abrupt('break', 62);
+                            return _context2.abrupt('break', 84);
 
-                        case 55:
+                        case 76:
                             $('#unverified_poa').setVisibility(1);
-                            return _context2.abrupt('break', 62);
+                            return _context2.abrupt('break', 84);
 
-                        case 57:
+                        case 78:
+                            showCTAButton('document', 'verified');
                             $('#verified_poa').setVisibility(1);
-                            return _context2.abrupt('break', 62);
+                            return _context2.abrupt('break', 84);
 
-                        case 59:
+                        case 81:
                             $('#expired_poa').setVisibility(1);
-                            return _context2.abrupt('break', 62);
+                            return _context2.abrupt('break', 84);
 
-                        case 61:
-                            return _context2.abrupt('break', 62);
+                        case 83:
+                            return _context2.abrupt('break', 84);
 
-                        case 62:
-                            _context2.next = 66;
+                        case 84:
+                            _context2.next = 88;
                             break;
 
-                        case 64:
+                        case 86:
                             init();
                             $('#not_authenticated').setVisibility(1);
 
-                        case 66:
+                        case 88:
 
                             $('#authentication_loading').setVisibility(0);
                             TabSelector.updateTabDisplay();
 
-                        case 68:
+                        case 90:
                         case 'end':
                             return _context2.stop();
                     }
@@ -27913,10 +28100,11 @@ var Authenticate = function () {
                 while (1) {
                     switch (_context3.prev = _context3.next) {
                         case 0:
-                            _context3.next = 2;
+                            cleanElementVisibility();
+                            _context3.next = 3;
                             return getAuthenticationStatus();
 
-                        case 2:
+                        case 3:
                             authentication_status = _context3.sent;
                             is_required = checkIsRequired(authentication_status);
 
@@ -27937,7 +28125,7 @@ var Authenticate = function () {
                                 $('#authentication_loading').setVisibility(0);
                             }
 
-                        case 7:
+                        case 8:
                         case 'end':
                             return _context3.stop();
                     }
@@ -31019,14 +31207,13 @@ var PersonalDetails = function () {
             CommonFunctions.getElementById('row_lbl_' + field).setVisibility(1);
         });
 
-        if (name_fields.some(function (key) {
-            return get_settings.immutable_fields.includes(key);
-        })) {
-            CommonFunctions.getElementById('row_name').setVisibility(1);
-            name_fields.forEach(function (field) {
-                return CommonFunctions.getElementById(field).setVisibility(0);
-            });
-        }
+        // if salutation is missing, we want to show first and last name label but salutation selectable separately
+        name_fields.forEach(function (field) {
+            if (get_settings.immutable_fields.includes(field)) {
+                CommonFunctions.getElementById('row_name').setVisibility(1);
+                CommonFunctions.getElementById(field).setVisibility(0);
+            }
+        });
 
         if (!get_settings.immutable_fields.includes('date_of_birth')) {
             $('#date_of_birth').setVisibility(1);
@@ -31070,7 +31257,7 @@ var PersonalDetails = function () {
             return new RegExp(loginid, 'i').test(get_settings.first_name);
         }) || is_virtual;
         if (!hide_name) {
-            get_settings.name = (get_settings.salutation || '') + ' ' + (get_settings.first_name || '') + ' ' + (get_settings.last_name || '');
+            get_settings.name = (get_settings.first_name || '') + ' ' + (get_settings.last_name || '');
         }
 
         if (get_settings.place_of_birth && get_settings.immutable_fields.includes('place_of_birth') && residence_list) {
@@ -31162,7 +31349,9 @@ var PersonalDetails = function () {
                 if (should_update_value) {
                     $(element_key).change(function () {
                         if (this.getAttribute('id') === 'date_of_birth') {
-                            this.setAttribute('data-value', toISOFormat(moment(this.value, 'DD MMM, YYYY')));
+                            // value could be epoch or already formatted to ISO
+                            var date_of_birth = this.value.indexOf('-') < 0 ? toISOFormat(moment(this.value, 'DD MMM, YYYY')) : this.value;
+                            this.setAttribute('data-value', date_of_birth);
                             return CommonFunctions.dateValueChanged(this, 'date');
                         }
                         return this.setAttribute('data-value', this.value);
@@ -31206,7 +31395,7 @@ var PersonalDetails = function () {
             var is_gaming = Client.isAccountOfType('gaming');
             var is_tax_req = isTaxReq();
 
-            validations = [{ selector: '#salutation', validations: ['req'] }, { selector: '#first_name', validations: ['req', 'letter_symbol', ['length', { min: 2, max: 50 }]] }, { selector: '#last_name', validations: ['req', 'letter_symbol', ['length', { min: 2, max: 50 }]] }, { selector: '#address_line_1', validations: ['req', 'address'] }, { selector: '#address_line_2', validations: ['address'] }, { selector: '#address_city', validations: ['req', 'letter_symbol'] }, { selector: '#address_state', validations: $('#address_state').prop('nodeName') === 'SELECT' ? '' : ['letter_symbol'] }, { selector: '#address_postcode', validations: [residence === 'gb' || Client.get('landing_company_shortcode') === 'iom' ? 'req' : '', 'postcode', ['length', { min: 0, max: 20 }]] }, { selector: '#email_consent' }, { selector: '#phone', validations: ['req', 'phone', ['length', { min: 8, max: 35, value: function value() {
+            validations = [{ selector: '#salutation', validations: ['req'] }, { selector: '#first_name', validations: ['req', 'letter_symbol', ['length', { min: 2, max: 50 }]] }, { selector: '#last_name', validations: ['req', 'letter_symbol', ['length', { min: 2, max: 50 }]] }, { selector: '#address_line_1', validations: ['req', 'address'] }, { selector: '#address_line_2', validations: ['address'] }, { selector: '#address_city', validations: ['req', 'letter_symbol'] }, { selector: '#address_state', validations: $('#address_state').prop('nodeName') === 'SELECT' ? '' : ['letter_symbol'] }, { selector: '#address_postcode', validations: [residence === 'gb' || Client.get('landing_company_shortcode') === 'iom' ? 'req' : '', 'postcode', ['length', { min: 0, max: 20 }]] }, { selector: '#email_consent' }, { selector: '#phone', validations: ['req', 'phone', ['length', { min: 9, max: 35, value: function value() {
                         return $('#phone').val().replace(/\D/g, '');
                     } }]] }, { selector: '#place_of_birth', validations: ['req'] }, { selector: '#account_opening_reason', validations: ['req'] }, { selector: '#date_of_birth', validations: ['req'] },
 
@@ -33707,7 +33896,6 @@ var MetaTraderConfig = function () {
 
     var fields = {
         new_account: {
-            txt_name: { id: '#txt_name', request_field: 'name' },
             txt_main_pass: { id: '#txt_main_pass', request_field: 'mainPassword' },
             txt_re_main_pass: { id: '#txt_re_main_pass' },
             ddl_trade_server: { id: '#ddl_trade_server', is_radio: true },
@@ -33715,7 +33903,11 @@ var MetaTraderConfig = function () {
             additional_fields: function additional_fields(acc_type) {
                 var sample_account = getSampleAccount(acc_type);
                 var is_demo = /^demo_/.test(acc_type);
+                var get_settings = State.getResponse('get_settings');
+                // First name is not set when user has no real account
+                var name = get_settings.first_name && get_settings.last_name ? get_settings.first_name + ' ' + get_settings.last_name : sample_account.title;
                 return _extends({
+                    name: name,
                     account_type: is_demo ? 'demo' : sample_account.market_type,
                     email: Client.get('email'),
                     leverage: sample_account.leverage
@@ -33781,7 +33973,7 @@ var MetaTraderConfig = function () {
 
     var validations = function validations() {
         return {
-            new_account: [{ selector: fields.new_account.txt_name.id, validations: [['req', { hide_asterisk: true }], 'letter_symbol', ['length', { min: 2, max: 101 }]] }, { selector: fields.new_account.txt_main_pass.id, validations: [['req', { hide_asterisk: true }], 'password', 'compare_to_email'] }, { selector: fields.new_account.txt_re_main_pass.id, validations: [['req', { hide_asterisk: true }], ['compare', { to: fields.new_account.txt_main_pass.id }]] }, { selector: fields.new_account.ddl_trade_server.id, validations: [['req', { hide_asterisk: true }]] }],
+            new_account: [{ selector: fields.new_account.txt_main_pass.id, validations: [['req', { hide_asterisk: true }], 'password', 'compare_to_email'] }, { selector: fields.new_account.txt_re_main_pass.id, validations: [['req', { hide_asterisk: true }], ['compare', { to: fields.new_account.txt_main_pass.id }]] }, { selector: fields.new_account.ddl_trade_server.id, validations: [['req', { hide_asterisk: true }]] }],
             password_change: [{ selector: fields.password_change.ddl_password_type.id, validations: [['req', { hide_asterisk: true }]] }, { selector: fields.password_change.txt_old_password.id, validations: [['req', { hide_asterisk: true }]] }, { selector: fields.password_change.txt_new_password.id, validations: [['req', { hide_asterisk: true }], 'password', ['not_equal', { to: fields.password_change.txt_old_password.id, name1: localize('Current password'), name2: localize('New password') }], 'compare_to_email'], re_check_field: fields.password_change.txt_re_new_password.id }, { selector: fields.password_change.txt_re_new_password.id, validations: [['req', { hide_asterisk: true }], ['compare', { to: fields.password_change.txt_new_password.id }]] }],
             password_reset: [{ selector: fields.password_reset.ddl_password_type.id, validations: [['req', { hide_asterisk: true }]] }, { selector: fields.password_reset.txt_new_password.id, validations: [['req', { hide_asterisk: true }], 'password', 'compare_to_email'], re_check_field: fields.password_reset.txt_re_new_password.id }, { selector: fields.password_reset.txt_re_new_password.id, validations: [['req', { hide_asterisk: true }], ['compare', { to: fields.password_reset.txt_new_password.id }]] }],
             verify_password_reset_token: [{ selector: fields.verify_password_reset_token.txt_verification_code.id, validations: [['req', { hide_asterisk: true }], 'token'], exclude_request: 1 }],
@@ -35085,12 +35277,6 @@ var MetaTraderUI = function () {
 
         if (step === 2) {
             _$form.find('input').not(':input[type=radio]').val('');
-
-            var get_settings = State.getResponse('get_settings');
-
-            if (get_settings.first_name && get_settings.last_name) {
-                _$form.find('#txt_name').val(get_settings.first_name + ' ' + get_settings.last_name);
-            }
 
             var trading_servers = State.getResponse('trading_servers');
             var $view_2_button_container = _$form.find('#view_2-buttons');
