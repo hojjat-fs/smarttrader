@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: binary-static\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-02-11 09:54\n"
+"PO-Revision-Date: 2021-03-09 02:12\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "MIME-Version: 1.0\n"
@@ -519,6 +519,9 @@ msgstr "（四）结算的可能性"
 
 msgid "(e) Size and nature"
 msgstr "（五）大小和性质"
+
+msgid "*Cryptocurrency pairs are not available for DMT5 Financial accounts registered with Deriv (V) Ltd."
+msgstr "*加密货币对不适用于在 Deriv (V) Ltd 注册的 DMT5 金融账户。"
 
 msgid "0 – 19.999%"
 msgstr "0 – 19.999%"
@@ -2650,8 +2653,8 @@ msgstr "客户也被告知，如果客户提供错误的信息，其权利可能
 msgid "Clients from the rest of the world (excluding certain countries such as the USA, Canada, Hong Kong) who wish to trade CFDs on financial instruments and cryptocurrencies can have MetaTrader 5 accounts under Deriv (BVI) Ltd. %1 is not available in the British Virgin Islands."
 msgstr "全球其他地区 (除了某些国家如美国、加拿大和香港) 想要进行金融工具和加密货币的差价合约交易的客户可在 Deriv (BVI) Ltd. 拥有MetaTrader 5账户。%1 在英属维尔京群岛不能使用。"
 
-msgid "Clients from the rest of the world (excluding certain countries such as the USA, Canada, Hong Kong) will have their FX and CFD Metatrader 5 account opened with Deriv (V) Ltd. %1 is not available in the Republic of Vanuatu."
-msgstr "全球其他地区的客户 (不包括某些国家如美国、加拿大、香港) 可在 Deriv (V) Ltd. 开设外汇和差价合约 Metatrader 5 账户。%1在瓦努阿图不能使用。"
+msgid "Clients from the rest of the world (excluding certain countries such as the USA, Canada, Hong Kong) will have their FX and CFD Metatrader 5 account opened with Deriv (V) Ltd. This company does not offer CFDs on cryptocurrencies. %1 is not available in the Republic of Vanuatu."
+msgstr "全球其他地区的客户 (不包括某些国家如美国、加拿大、香港) 可在 Deriv (V) Ltd. 开设外汇和差价合约 Metatrader 5 账户。公司不提供加密货币的差价合约。%1在瓦努阿图不能使用。"
 
 msgid "Clients from the rest of the world (excluding certain countries such as the USA, Canada, and Hong Kong) will have their account opened with Deriv (SVG) LLC."
 msgstr "全球其他地区的客户 (不包括某些国家如美国、加拿大和香港) 可在 Deriv (SVG) LLC 开设账户。"
@@ -3305,6 +3308,9 @@ msgstr "像比特币和以太币这样的加密货币是分散式的数字资产
 msgid "Cryptocurrencies such as Bitcoin and Ethereum are decentralised digital currencies on the blockchain."
 msgstr "比特币和以太币等加密货币是区块链上的分散式数字货币。"
 
+msgid "Cryptocurrencies*"
+msgstr "加密货币*"
+
 msgid "Cryptocurrency"
 msgstr "加密货币"
 
@@ -3581,8 +3587,8 @@ msgstr "在下方存款或提款"
 msgid "Deposit: %1 blockchain confirmations"
 msgstr "存款： %1区块链确认"
 
-msgid "Deposit: %1 working day"
-msgstr "存款：%1工作日内"
+msgid "Deposit: %1 day"
+msgstr "存款：%1天"
 
 msgid "Deposit: Instant"
 msgstr "存款：实时"
@@ -3934,6 +3940,9 @@ msgstr "下载MT5"
 
 msgid "Download MT5 for Linux"
 msgstr "Linux版MT5下载"
+
+msgid "Download MT5 for Mac"
+msgstr "Mac版MT5下载"
 
 msgid "Download MT5 for Windows"
 msgstr "Windows版MT5下载"
@@ -6786,8 +6795,8 @@ msgstr "与您的电脑连接"
 msgid "Links"
 msgstr "链接"
 
-msgid "Linux"
-msgstr "Linux"
+msgid "Linux or MacOs"
+msgstr "Linux 或 MacOs"
 
 msgid "Liquidity solutions"
 msgstr "流动性解决方案"
@@ -6870,9 +6879,6 @@ msgstr "回顾选项目前仅适用于 %1综合指数%2。"
 msgid "Looking for %1 app?"
 msgstr "正在查找 %1 应用程序？"
 
-msgid "Looking for desktop apps?"
-msgstr "正在查找桌面应用程序？"
-
 msgid "Looking for the %1 Desktop app?"
 msgstr "正在查找 %1 桌面应用程序？"
 
@@ -6948,6 +6954,9 @@ msgstr "MT5 综合"
 msgid "MT5 Web platform"
 msgstr "网络平台版MT5"
 
+msgid "MT5 for %1"
+msgstr "%1 版MT5"
+
 msgid "MT5 for Android"
 msgstr "Android 版MT5"
 
@@ -6957,11 +6966,11 @@ msgstr "Linux 版MT5"
 msgid "MT5 for Mobile"
 msgstr "移动设备版MT5"
 
-msgid "MT5 for Windows"
-msgstr "Windows版MT5"
-
 msgid "MT5 for iOS"
 msgstr "IOS 版MT5"
+
+msgid "MT5 for macOS"
+msgstr "macOS 版 MT5"
 
 msgid "MT5 real-money account for Synthetic Indices only."
 msgstr "综合指数专用的MT5 真实资金账户。"
@@ -6974,6 +6983,9 @@ msgstr "MT5网络平台"
 
 msgid "MT5 withdrawals have been disabled on your account. Please check your email for more details."
 msgstr "您的MT5账户已被禁提款。请检查您的电子邮件, 以了解更多详情。"
+
+msgid "MacOs or Windows"
+msgstr "MacOs 或 Windows"
 
 msgid "Made an impression in the first interview? We'll invite you to a second interview with our CEO and/or hiring manager."
 msgstr "在第一次面试中留下了深刻印象？我们将邀请您与首席执行官和/或招聘经理进行第二次面谈。"
@@ -7547,9 +7559,6 @@ msgstr "您宠物的名字"
 
 msgid "Name, email address, and contact number"
 msgstr "姓名、电子邮件和电话"
-
-msgid "Name:"
-msgstr "姓名:"
 
 msgid "National ID card, ID book or any government-issued document which contains a photo, your name, and date of birth"
 msgstr "包含您的照片、姓名和出生日期的国民身份证、身分本或任何政府出具的文件"
@@ -8568,6 +8577,9 @@ msgstr "请确认您不是政治公众人士。"
 msgid "Please confirm the transaction details in order to complete the transfer:"
 msgstr "请确认交易详情以完成转账："
 
+msgid "Please contact us via %1live chat%2."
+msgstr "请通过%1li实时聊天%2与我们联系。"
+
 msgid "Please contact your payment agent to validate your withdrawal request."
 msgstr "请联系您的付款代理，以便验证您的取款请求。"
 
@@ -8583,8 +8595,8 @@ msgstr "请确保您提供的的地址是完整和准确的。"
 msgid "Please enter a valid Login ID."
 msgstr "请输入有效的登录 ID。"
 
-msgid "Please enter a valid phone number, including the country code (e.g. +15417541234)."
-msgstr "请输入包括国家代码的有效电话号 (例如 +15417541234)."
+msgid "Please enter a valid phone number (e.g. +15417541234)."
+msgstr "请输入有效的电话号 (例如 +15417541234)。"
 
 msgid "Please enter date in the format DD MMM, YYYY HH:mm (local time)."
 msgstr "请输入日期，格式为日-月-年 时：分（当地时间）。"
@@ -8877,6 +8889,9 @@ msgstr "价格/定价数据"
 msgid "Primary"
 msgstr "小学"
 
+msgid "Prime Brokerage Services Limited"
+msgstr "Prime Brokerage Services 有限公司"
+
 msgid "Prior to placing an Order, which results in opening a position, the client acknowledges that it is their responsibility to ensure that their Account Free Margin is sufficient to cover the Margin required in relation to the opening of the position (the \"Margin Requirement\"), and to continuously meet the Margin Requirement."
 msgstr "下单开盘交易前，客户确认确保其账户可用保证金足以支付开盘交易所须的保证金（\"要求保证金\"），并持续满足保证金要求是客户的责任。"
 
@@ -9119,6 +9134,9 @@ msgstr "2018年第四季"
 
 msgid "Q4 2019"
 msgstr "2019年第四季"
+
+msgid "Q4 2020"
+msgstr "2020年第四季"
 
 msgid "Qiwi is a payment service provider that was founded in 2007. It provides individuals with a simple way to transfer money, receive payments, and pay online. For more information, please visit %1."
 msgstr "Qiwi 是支付服务提供商, 成立于2007年。它为个人提供简单的在线转移资金、接收付款和支付。欲知详情, 请访问 %1。"
@@ -9965,6 +9983,12 @@ msgstr "显示所有详细信息-包括最后2行"
 
 msgid "Show all historical transactions up to"
 msgstr "显示此日期前的所有历史记录"
+
+msgid "Show less"
+msgstr "显示更少"
+
+msgid "Show more"
+msgstr "显示更多"
 
 msgid "Sign out"
 msgstr "登出"
@@ -11311,8 +11335,8 @@ msgstr "推介经纪的义务"
 msgid "The Investor Compensation Scheme"
 msgstr "投资者补偿方案"
 
-msgid "The MT5 desktop app is not supported by macOS, Windows XP, Windows 2003, and Windows Vista."
-msgstr "MacOS Catalina、Windows XP、Windows 2003 和 Windows Vista不支持 MT5 桌面应用程序。"
+msgid "The MT5 desktop app is not supported by Windows XP, Windows 2003, and Windows Vista."
+msgstr "Windows XP、Windows 2003 和 Windows Vista不支持 MT5 桌面应用程序。"
 
 msgid "The Margin Level of the client's MT5 Real Account reaches or falls below the Stop Out Level."
 msgstr "客户的MT5真实账户保证金水平已达到或低于强制平仓水平。"
@@ -12349,9 +12373,6 @@ msgstr "这项义务包括禁止非法付款或向公职人员、业务伙伴、
 msgid "This page is only available to logged out clients."
 msgstr "此页面仅适用于已登出的客户。"
 
-msgid "This page will redirect to the %1 homepage after 10 seconds."
-msgstr "此页面将于十秒后重定向至%1主页。"
-
 msgid "This policy applies to clients classified as retail or professional. Clients classified as eligible counterparties are outside the scope of this policy."
 msgstr "本政策适用于归类为零售或专业的客户。被列为符合条件的交易对手的客户不在本政策的范围之内。"
 
@@ -12738,6 +12759,9 @@ msgstr "交易时间"
 
 msgid "Trading and Withdrawal Limits"
 msgstr "交易和取款限额"
+
+msgid "Trading and deposits have been disabled on your account. Kindly allow us some time to review the account."
+msgstr "您的账户已被禁交易和存款。请稍候，我们正在评估账户。"
 
 msgid "Trading and withdrawals have been disabled on your account. Kindly %1contact customer support%2 for assistance."
 msgstr "您的账户已被禁交易和提款。请 %1联系客服部%2寻求帮助。"
@@ -13132,6 +13156,9 @@ msgstr "从电脑上传卡的背面"
 msgid "Upload back of license from your computer"
 msgstr "从电脑上传执照的背面"
 
+msgid "Upload document"
+msgstr "上传文件"
+
 msgid "Upload front of card from your computer"
 msgstr "从电脑上传卡的正面"
 
@@ -13281,9 +13308,6 @@ msgstr "版本49。最后修改时间 23-11-2020。"
 
 msgid "Video Room Facility"
 msgstr "视频室设施"
-
-msgid "Video tutorial"
-msgstr "视频教程"
 
 msgid "View"
 msgstr "查看"
@@ -13564,8 +13588,11 @@ msgstr "我们预计今年将有超过11亿万笔交易, 成立以来我们平�
 msgid "We're really proud of this award. We're strongly committed to offering an ethical and customer-focused trading experience, and the award shows that BetOnMarkets is a trusted brand that listens and caters to customers, whether they are experienced traders or novices. We offer customer services in English, Indonesian, Russian, Chinese and Spanish."
 msgstr "获得这个奖项，我们真的很自豪。我们不懈努力，提供合乎道德、以客户为中心的交易体验。该奖项表明 BetOnMarkets 是一个值得信赖的品牌，愿意接受客户意见并满足客户需求，无论客户是经验丰富的交易者还是新手。我们为客户提供英语、印尼语、俄语、中文和西班牙语服务。"
 
+msgid "We're sorry to see you leave."
+msgstr "很遗憾，您要离开。"
+
 msgid "We've grown in size over the years - both in terms of manpower and offices. We currently have over %1 employees across 10 offices in Malta, Dubai, Malaysia, Paraguay, Cyprus, Rwanda, and Belarus. Further growth in headcount is expected this year to cater to the increased demand in our products and services."
-msgstr ""
+msgstr "多年来，无论在人力和办公室方面， 我们的规模不断扩大。目前在马耳他、迪拜、马来西亚、巴拉圭、塞浦路斯、卢旺达和白俄罗斯有十个办事处和%1多名员工。预计今年的员工人数将进一步增长, 以满足我们产品和服务需求的增加。"
 
 msgid "We've sent a secure link to %{number}"
 msgstr "已发送安全链接至%{number}"
@@ -13933,8 +13960,8 @@ msgstr "赢取乘数值乘以最高值减去最低值。"
 msgid "Win the multiplier times the high minus low."
 msgstr "赢取乘数值乘以最高值减去最低值。"
 
-msgid "Windows"
-msgstr "Windows"
+msgid "Windows or Linux"
+msgstr "Windows 或 Linux"
 
 msgid "Winning the contract"
 msgstr "合约盈利"
@@ -13993,11 +14020,11 @@ msgstr "从客户的MT5真实账户中提款时可以使用与其%1账户不相�
 msgid "Withdrawal via payment agent is available only if you deposit exclusively via payment agent."
 msgstr "必须完全通过付款代理存款才可使用付款代理提款。"
 
-msgid "Withdrawal: %1 to %2 working days"
-msgstr "取款：%1至%2 个工作日"
+msgid "Withdrawal: %1 day"
+msgstr "取款：%1 天"
 
-msgid "Withdrawal: %1 working day"
-msgstr "取款：%1 个工作日"
+msgid "Withdrawal: %1 to %2 days"
+msgstr "取款：%1至%2 天"
 
 msgid "Withdrawal: Not applicable"
 msgstr "取款：不适用"
@@ -14257,6 +14284,12 @@ msgstr "资金只可在法定账户和加密货币账户之间转移."
 msgid "You may open one account for each supported cryptocurrency."
 msgstr "您可以为每种受支持的加密货币开立专用账户。"
 
+msgid "You must also submit a proof of address."
+msgstr "您还必须提交地址证明。"
+
+msgid "You must also submit a proof of identity."
+msgstr "您还必须提交身份证明。"
+
 msgid "You must ensure that potential clients are aware of the prohibition on insider trading based on confidential information. If you have any suspicion that such trading is taking place you must inform %1compliance@binary.com%2."
 msgstr "您必须确保潜在客户了解基于机密信息的内幕交易禁令。如果您怀疑有人正在进行此类交易，必须通知%1compliance@binary.com%2。"
 
@@ -14353,6 +14386,9 @@ msgstr "您在与我们类似的市场进行了相当多的交易, 过去四季�
 msgid "You've made no transactions of this type up to this date."
 msgstr "您至今为止没有进行过此类交易。"
 
+msgid "You've reached the limit for uploading your documents."
+msgstr "文件上传已达上限。"
+
 msgid "You've worked in the financial sector for at least one year in a role that requires knowledge of your intended transactions on our platform"
 msgstr "您在金融业界工作至少一年, 拥有在我们平台上交易的所需知识"
 
@@ -14395,8 +14431,8 @@ msgstr "您的账户无交易活动。"
 msgid "Your account is fully authenticated and your withdrawal limits have been lifted."
 msgstr "您的账户已经得到完全验证，且您的取款限额已经取消。"
 
-msgid "Your account is now closed"
-msgstr "您的账户已关闭"
+msgid "Your account is now deactivated."
+msgstr "您的账户已停用。"
 
 msgid "Your account is restricted. Kindly %1contact customer support%2 for assistance."
 msgstr "您的账户已被限制。请%1联系客服部%2，以获得帮助。"
@@ -14437,8 +14473,14 @@ msgstr "您的电脑更新可能需要数秒钟"
 msgid "Your demo account balance is currently %1 or less. You may top up your account with an additional %2."
 msgstr "您的模拟账户余额当前为 %1 或更低。您可以添加 %2补充账户资金。"
 
-msgid "Your document is being reviewed, please check back in 1-3 days"
-msgstr "您的文件正在审查中，请于1-3天后再查看"
+msgid "Your document is being reviewed, please check back in 1-3 days."
+msgstr "您的文件正在审查中，请于1-3天后再查看。"
+
+msgid "Your document is being reviewed, please check back in 1-3 days. You must also submit a proof of address."
+msgstr "您的文件正在审查中，请于1-3天后再查看。您还必须提交地址证明。"
+
+msgid "Your document is being reviewed, please check back in 1-3 days. You must also submit a proof of identity."
+msgstr "您的文件正在审查中，请于1-3天后再查看。您还必须提交身份证明。"
 
 msgid "Your face is needed in the selfie"
 msgstr "自拍照片必须包括脸部"
@@ -14497,6 +14539,9 @@ msgstr "您的身份证明已通过验证"
 msgid "Your proof of identity has expired"
 msgstr "您的身份证明已过期"
 
+msgid "Your proof of identity submission failed because:"
+msgstr "您提交的身份证明已失败，因为:"
+
 msgid "Your proof of identity was submitted successfully"
 msgstr "您的身份证明已成功提交"
 
@@ -14553,9 +14598,6 @@ msgstr "您的取款限额是 %1%2。"
 
 msgid "You’ll be logged out automatically."
 msgstr "您将自动注销。"
-
-msgid "You’ve successfully closed your account. We’ll send a confirmation email to %1."
-msgstr "您的账户已成功关闭。我们将传送确认邮件到%1。"
 
 msgid "ZEC vs US dollar"
 msgstr "大零币兑美元"

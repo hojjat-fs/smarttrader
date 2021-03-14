@@ -505,6 +505,9 @@ msgstr ""
 msgid "(e) Size and nature"
 msgstr ""
 
+msgid "*Cryptocurrency pairs are not available for DMT5 Financial accounts registered with Deriv (V) Ltd."
+msgstr ""
+
 msgid "0 – 19.999%"
 msgstr ""
 
@@ -2635,7 +2638,7 @@ msgstr ""
 msgid "Clients from the rest of the world (excluding certain countries such as the USA, Canada, Hong Kong) who wish to trade CFDs on financial instruments and cryptocurrencies can have MetaTrader 5 accounts under Deriv (BVI) Ltd. %1 is not available in the British Virgin Islands."
 msgstr ""
 
-msgid "Clients from the rest of the world (excluding certain countries such as the USA, Canada, Hong Kong) will have their FX and CFD Metatrader 5 account opened with Deriv (V) Ltd. %1 is not available in the Republic of Vanuatu."
+msgid "Clients from the rest of the world (excluding certain countries such as the USA, Canada, Hong Kong) will have their FX and CFD Metatrader 5 account opened with Deriv (V) Ltd. This company does not offer CFDs on cryptocurrencies. %1 is not available in the Republic of Vanuatu."
 msgstr ""
 
 msgid "Clients from the rest of the world (excluding certain countries such as the USA, Canada, and Hong Kong) will have their account opened with Deriv (SVG) LLC."
@@ -3289,6 +3292,9 @@ msgstr ""
 msgid "Cryptocurrencies such as Bitcoin and Ethereum are decentralised digital currencies on the blockchain."
 msgstr ""
 
+msgid "Cryptocurrencies*"
+msgstr ""
+
 msgid "Cryptocurrency"
 msgstr ""
 
@@ -3565,7 +3571,7 @@ msgstr ""
 msgid "Deposit: %1 blockchain confirmations"
 msgstr ""
 
-msgid "Deposit: %1 working day"
+msgid "Deposit: %1 day"
 msgstr ""
 
 msgid "Deposit: Instant"
@@ -3917,6 +3923,9 @@ msgid "Download MT5"
 msgstr ""
 
 msgid "Download MT5 for Linux"
+msgstr ""
+
+msgid "Download MT5 for Mac"
 msgstr ""
 
 msgid "Download MT5 for Windows"
@@ -6769,7 +6778,7 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
-msgid "Linux"
+msgid "Linux or MacOs"
 msgstr ""
 
 msgid "Liquidity solutions"
@@ -6853,9 +6862,6 @@ msgstr ""
 msgid "Looking for %1 app?"
 msgstr ""
 
-msgid "Looking for desktop apps?"
-msgstr ""
-
 msgid "Looking for the %1 Desktop app?"
 msgstr ""
 
@@ -6931,6 +6937,9 @@ msgstr ""
 msgid "MT5 Web platform"
 msgstr ""
 
+msgid "MT5 for %1"
+msgstr ""
+
 msgid "MT5 for Android"
 msgstr ""
 
@@ -6940,10 +6949,10 @@ msgstr ""
 msgid "MT5 for Mobile"
 msgstr ""
 
-msgid "MT5 for Windows"
+msgid "MT5 for iOS"
 msgstr ""
 
-msgid "MT5 for iOS"
+msgid "MT5 for macOS"
 msgstr ""
 
 msgid "MT5 real-money account for Synthetic Indices only."
@@ -6956,6 +6965,9 @@ msgid "MT5 web platform"
 msgstr ""
 
 msgid "MT5 withdrawals have been disabled on your account. Please check your email for more details."
+msgstr ""
+
+msgid "MacOs or Windows"
 msgstr ""
 
 msgid "Made an impression in the first interview? We'll invite you to a second interview with our CEO and/or hiring manager."
@@ -7529,9 +7541,6 @@ msgid "Name of your pet"
 msgstr ""
 
 msgid "Name, email address, and contact number"
-msgstr ""
-
-msgid "Name:"
 msgstr ""
 
 msgid "National ID card, ID book or any government-issued document which contains a photo, your name, and date of birth"
@@ -8551,6 +8560,9 @@ msgstr ""
 msgid "Please confirm the transaction details in order to complete the transfer:"
 msgstr ""
 
+msgid "Please contact us via %1live chat%2."
+msgstr ""
+
 msgid "Please contact your payment agent to validate your withdrawal request."
 msgstr ""
 
@@ -8566,7 +8578,7 @@ msgstr ""
 msgid "Please enter a valid Login ID."
 msgstr ""
 
-msgid "Please enter a valid phone number, including the country code (e.g. +15417541234)."
+msgid "Please enter a valid phone number (e.g. +15417541234)."
 msgstr ""
 
 msgid "Please enter date in the format DD MMM, YYYY HH:mm (local time)."
@@ -8860,6 +8872,9 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
+msgid "Prime Brokerage Services Limited"
+msgstr ""
+
 msgid "Prior to placing an Order, which results in opening a position, the client acknowledges that it is their responsibility to ensure that their Account Free Margin is sufficient to cover the Margin required in relation to the opening of the position (the \"Margin Requirement\"), and to continuously meet the Margin Requirement."
 msgstr ""
 
@@ -9101,6 +9116,9 @@ msgid "Q4 2018"
 msgstr ""
 
 msgid "Q4 2019"
+msgstr ""
+
+msgid "Q4 2020"
 msgstr ""
 
 msgid "Qiwi is a payment service provider that was founded in 2007. It provides individuals with a simple way to transfer money, receive payments, and pay online. For more information, please visit %1."
@@ -9947,6 +9965,12 @@ msgid "Show all details — including the bottom 2 lines"
 msgstr ""
 
 msgid "Show all historical transactions up to"
+msgstr ""
+
+msgid "Show less"
+msgstr ""
+
+msgid "Show more"
 msgstr ""
 
 msgid "Sign out"
@@ -11293,7 +11317,7 @@ msgstr ""
 msgid "The Investor Compensation Scheme"
 msgstr ""
 
-msgid "The MT5 desktop app is not supported by macOS, Windows XP, Windows 2003, and Windows Vista."
+msgid "The MT5 desktop app is not supported by Windows XP, Windows 2003, and Windows Vista."
 msgstr ""
 
 msgid "The Margin Level of the client's MT5 Real Account reaches or falls below the Stop Out Level."
@@ -12331,9 +12355,6 @@ msgstr ""
 msgid "This page is only available to logged out clients."
 msgstr ""
 
-msgid "This page will redirect to the %1 homepage after 10 seconds."
-msgstr ""
-
 msgid "This policy applies to clients classified as retail or professional. Clients classified as eligible counterparties are outside the scope of this policy."
 msgstr ""
 
@@ -12719,6 +12740,9 @@ msgid "Trading Times"
 msgstr ""
 
 msgid "Trading and Withdrawal Limits"
+msgstr ""
+
+msgid "Trading and deposits have been disabled on your account. Kindly allow us some time to review the account."
 msgstr ""
 
 msgid "Trading and withdrawals have been disabled on your account. Kindly %1contact customer support%2 for assistance."
@@ -13114,6 +13138,9 @@ msgstr ""
 msgid "Upload back of license from your computer"
 msgstr ""
 
+msgid "Upload document"
+msgstr ""
+
 msgid "Upload front of card from your computer"
 msgstr ""
 
@@ -13262,9 +13289,6 @@ msgid "Version 49. Last modified 23-11-2020."
 msgstr ""
 
 msgid "Video Room Facility"
-msgstr ""
-
-msgid "Video tutorial"
 msgstr ""
 
 msgid "View"
@@ -13544,6 +13568,9 @@ msgid "We're projected to register over 1.1 billion transactions this year, brin
 msgstr ""
 
 msgid "We're really proud of this award. We're strongly committed to offering an ethical and customer-focused trading experience, and the award shows that BetOnMarkets is a trusted brand that listens and caters to customers, whether they are experienced traders or novices. We offer customer services in English, Indonesian, Russian, Chinese and Spanish."
+msgstr ""
+
+msgid "We're sorry to see you leave."
 msgstr ""
 
 msgid "We've grown in size over the years - both in terms of manpower and offices. We currently have over %1 employees across 10 offices in Malta, Dubai, Malaysia, Paraguay, Cyprus, Rwanda, and Belarus. Further growth in headcount is expected this year to cater to the increased demand in our products and services."
@@ -13915,7 +13942,7 @@ msgstr ""
 msgid "Win the multiplier times the high minus low."
 msgstr ""
 
-msgid "Windows"
+msgid "Windows or Linux"
 msgstr ""
 
 msgid "Winning the contract"
@@ -13975,10 +14002,10 @@ msgstr ""
 msgid "Withdrawal via payment agent is available only if you deposit exclusively via payment agent."
 msgstr ""
 
-msgid "Withdrawal: %1 to %2 working days"
+msgid "Withdrawal: %1 day"
 msgstr ""
 
-msgid "Withdrawal: %1 working day"
+msgid "Withdrawal: %1 to %2 days"
 msgstr ""
 
 msgid "Withdrawal: Not applicable"
@@ -14239,6 +14266,12 @@ msgstr ""
 msgid "You may open one account for each supported cryptocurrency."
 msgstr ""
 
+msgid "You must also submit a proof of address."
+msgstr ""
+
+msgid "You must also submit a proof of identity."
+msgstr ""
+
 msgid "You must ensure that potential clients are aware of the prohibition on insider trading based on confidential information. If you have any suspicion that such trading is taking place you must inform %1compliance@binary.com%2."
 msgstr ""
 
@@ -14335,6 +14368,9 @@ msgstr ""
 msgid "You've made no transactions of this type up to this date."
 msgstr ""
 
+msgid "You've reached the limit for uploading your documents."
+msgstr ""
+
 msgid "You've worked in the financial sector for at least one year in a role that requires knowledge of your intended transactions on our platform"
 msgstr ""
 
@@ -14377,7 +14413,7 @@ msgstr ""
 msgid "Your account is fully authenticated and your withdrawal limits have been lifted."
 msgstr ""
 
-msgid "Your account is now closed"
+msgid "Your account is now deactivated."
 msgstr ""
 
 msgid "Your account is restricted. Kindly %1contact customer support%2 for assistance."
@@ -14419,7 +14455,13 @@ msgstr ""
 msgid "Your demo account balance is currently %1 or less. You may top up your account with an additional %2."
 msgstr ""
 
-msgid "Your document is being reviewed, please check back in 1-3 days"
+msgid "Your document is being reviewed, please check back in 1-3 days."
+msgstr ""
+
+msgid "Your document is being reviewed, please check back in 1-3 days. You must also submit a proof of address."
+msgstr ""
+
+msgid "Your document is being reviewed, please check back in 1-3 days. You must also submit a proof of identity."
 msgstr ""
 
 msgid "Your face is needed in the selfie"
@@ -14479,6 +14521,9 @@ msgstr ""
 msgid "Your proof of identity has expired"
 msgstr ""
 
+msgid "Your proof of identity submission failed because:"
+msgstr ""
+
 msgid "Your proof of identity was submitted successfully"
 msgstr ""
 
@@ -14534,9 +14579,6 @@ msgid "Your withdrawal limit is %1%2."
 msgstr ""
 
 msgid "You’ll be logged out automatically."
-msgstr ""
-
-msgid "You’ve successfully closed your account. We’ll send a confirmation email to %1."
 msgstr ""
 
 msgid "ZEC vs US dollar"

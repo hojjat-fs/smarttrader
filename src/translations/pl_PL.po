@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: binary-static\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-02-11 09:54\n"
+"PO-Revision-Date: 2021-03-09 02:12\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "MIME-Version: 1.0\n"
@@ -520,6 +520,9 @@ msgstr "(d) Prawdopodobieństwo rozliczenia"
 msgid "(e) Size and nature"
 msgstr "(e) Rozmiar i charakter"
 
+msgid "*Cryptocurrency pairs are not available for DMT5 Financial accounts registered with Deriv (V) Ltd."
+msgstr "*Pary kryptowalut nie są dostępne dla kont finansowych DMT5 zarejestrowanych przez Deriv (V) Ltd."
+
 msgid "0 – 19.999%"
 msgstr "0 – 19.999%"
 
@@ -953,7 +956,7 @@ msgid "Access to the client's personal data is strictly prohibited, with the exc
 msgstr "Dostęp do danych osobowych klienta jest całkowicie zabroniony. Wyjątek stanowią kluczowi pracownicy %1, którzy mogą uzyskać taki dostęp wyłącznie w celu wykonywania swoich obowiązków."
 
 msgid "Access your account with full trading permission."
-msgstr ""
+msgstr "Uzyskaj dostęp do swojego konta z pełnymi uprawnieniami do handlowania."
 
 msgid "Accomplished writing and editing skills with at least five years editorial experience in digital advertising or online media"
 msgstr "Doskonała umiejętność tworzenia tekstów i edytowania poparta co najmniej pięcioletnim doświadczeniem edytorskim w branży reklam cyfrowych lub mediów on-line"
@@ -2447,7 +2450,7 @@ msgid "Change API Endpoint"
 msgstr "Zmień punkt końcowy API"
 
 msgid "Change MT5 password"
-msgstr ""
+msgstr "Zmień hasło MT5"
 
 msgid "Change Password"
 msgstr "Zmień hasło"
@@ -2650,8 +2653,8 @@ msgstr "Informuje się również Klientów, że ich prawa mogą zostać naruszon
 msgid "Clients from the rest of the world (excluding certain countries such as the USA, Canada, Hong Kong) who wish to trade CFDs on financial instruments and cryptocurrencies can have MetaTrader 5 accounts under Deriv (BVI) Ltd. %1 is not available in the British Virgin Islands."
 msgstr "Klienci z pozostałych rejonów świata (z wyłączeniem niektórych krajów, takich jak Stany Zjednoczone, Kanada i Hongkong), którzy chcą handlować kontraktami na różnice kursowe na instrumenty finansowe i kryptowaluty będą mieli założone konto MetaTrader 5 przez Deriv (BVI) Ltd. Usługi %1 są niedostępne na Brytyjskich Wyspach Dziewiczych."
 
-msgid "Clients from the rest of the world (excluding certain countries such as the USA, Canada, Hong Kong) will have their FX and CFD Metatrader 5 account opened with Deriv (V) Ltd. %1 is not available in the Republic of Vanuatu."
-msgstr "W przypadku klientów z pozostałych krajów (za wyjątkiem niektórych krajów, takich jak Stany Zjednoczone, Kanada czy Hongkong) konta FX i CFD Metatrader 5 zostaną otwarte przez Deriv (V) Ltd. Usługi %1 są niedostępne w Republice Vanuatu."
+msgid "Clients from the rest of the world (excluding certain countries such as the USA, Canada, Hong Kong) will have their FX and CFD Metatrader 5 account opened with Deriv (V) Ltd. This company does not offer CFDs on cryptocurrencies. %1 is not available in the Republic of Vanuatu."
+msgstr "W przypadku klientów z pozostałych krajów (za wyjątkiem niektórych krajów, takich jak Stany Zjednoczone, Kanada czy Hongkong) konta FX i CFD Metatrader 5 zostaną otwarte przez Deriv (V) Ltd. Ta firma nie oferuje kontraktów CFD na kryptowaluty. Usługi %1 są niedostępne w Republice Vanuatu."
 
 msgid "Clients from the rest of the world (excluding certain countries such as the USA, Canada, and Hong Kong) will have their account opened with Deriv (SVG) LLC."
 msgstr "Klienci z pozostałych części świata (wyłączając niektóre państwa, takich jak USA, Kanada, Hongkong) będą mieli założone konta przez Deriv (SVG) LLC."
@@ -3304,6 +3307,9 @@ msgstr "Kryptowaluty, takie jak Bitcoin czy Ethereum, to zdecentralizowane aktyw
 msgid "Cryptocurrencies such as Bitcoin and Ethereum are decentralised digital currencies on the blockchain."
 msgstr "Kryptowaluty, takie jak Bitcoin czy Ethereum, to zdecentralizowane waluty cyfrowe w bazie blockchain."
 
+msgid "Cryptocurrencies*"
+msgstr "Kryptowaluty*"
+
 msgid "Cryptocurrency"
 msgstr "Kryptowaluta"
 
@@ -3338,7 +3344,7 @@ msgid "Current"
 msgstr "Obecne"
 
 msgid "Current MT5 password"
-msgstr ""
+msgstr "Obecne hasło MT5"
 
 msgid "Current Time"
 msgstr "Obecny czas"
@@ -3580,8 +3586,8 @@ msgstr "Wpłaty lub wypłaty poniżej"
 msgid "Deposit: %1 blockchain confirmations"
 msgstr "Wpłata: potwierdzenia blockchain w liczbie %1"
 
-msgid "Deposit: %1 working day"
-msgstr "Wpłata: %1 dzień roboczy"
+msgid "Deposit: %1 day"
+msgstr "Wpłata: %1 dzień"
 
 msgid "Deposit: Instant"
 msgstr "Wpłata: błyskawiczna"
@@ -3933,6 +3939,9 @@ msgstr "Pobierz MT5"
 
 msgid "Download MT5 for Linux"
 msgstr "Pobierz wersję MT5 na komputery z systemem Linux"
+
+msgid "Download MT5 for Mac"
+msgstr "Pobierz wersję MT5 na komputery Mac"
 
 msgid "Download MT5 for Windows"
 msgstr "Pobierz wersję MT5 na komputery z systemem Windows"
@@ -6347,7 +6356,7 @@ msgid "Investments &amp; Dividends"
 msgstr "Inwestycje i dywidenda"
 
 msgid "Investor"
-msgstr ""
+msgstr "Inwestor"
 
 msgid "Investor Compensation Scheme"
 msgstr "System rekompensat dla inwestorów"
@@ -6784,8 +6793,8 @@ msgstr "Połączone z Twoim komputerem"
 msgid "Links"
 msgstr "Łącza"
 
-msgid "Linux"
-msgstr "Linux"
+msgid "Linux or MacOs"
+msgstr "Linux lub MacOs"
 
 msgid "Liquidity solutions"
 msgstr "Rozwiązania w zakresie płynności"
@@ -6868,9 +6877,6 @@ msgstr "Opcje wsteczne są obecnie dostępne wyłącznie dla %1wskaźników synt
 msgid "Looking for %1 app?"
 msgstr "Szukasz aplikacji %1?"
 
-msgid "Looking for desktop apps?"
-msgstr "Szukasz aplikacji na komputery stacjonarne?"
-
 msgid "Looking for the %1 Desktop app?"
 msgstr "Szukasz aplikacji %1 na komputery stacjonarne?"
 
@@ -6946,6 +6952,9 @@ msgstr "Syntetyczne MT5"
 msgid "MT5 Web platform"
 msgstr "Platforma internetowa MT5"
 
+msgid "MT5 for %1"
+msgstr "MT5 dla %1"
+
 msgid "MT5 for Android"
 msgstr "MT5 dla systemu Android"
 
@@ -6955,11 +6964,11 @@ msgstr "MT5 dla systemu Linux"
 msgid "MT5 for Mobile"
 msgstr "MT5 na urządzenia mobilne"
 
-msgid "MT5 for Windows"
-msgstr "MT5 dla systemu Windows"
-
 msgid "MT5 for iOS"
 msgstr "MT5 dla systemu iOS"
+
+msgid "MT5 for macOS"
+msgstr "MT5 dla macOS"
 
 msgid "MT5 real-money account for Synthetic Indices only."
 msgstr "Konto z prawdziwymi pieniędzmi MT5 wyłącznie do wskaźników syntetycznych."
@@ -6973,6 +6982,9 @@ msgstr "Platforma internetowa MT5"
 msgid "MT5 withdrawals have been disabled on your account. Please check your email for more details."
 msgstr "Opcja dokonywania wypłat z MT5 została wyłączona na Twoim koncie. Sprawdź swoją skrzynkę e-mailową, aby uzyskać więcej informacji."
 
+msgid "MacOs or Windows"
+msgstr "MacOs lub Windows"
+
 msgid "Made an impression in the first interview? We'll invite you to a second interview with our CEO and/or hiring manager."
 msgstr "Udało Ci się zrobić wrażenie na rozmowie rekrutacyjnej? Zaprosimy Cię na drugą rozmowę z naszym dyrektorem generalnym lub kierownikiem ds. rekrutacji."
 
@@ -6980,10 +6992,10 @@ msgid "Maestro is an international debit card service by Mastercard. For more in
 msgstr "Maestro to międzynarodowa usługa w zakresie kart debetowych należąca do Mastercard. Aby uzyskać więcej informacji, odwiedź %1."
 
 msgid "Main"
-msgstr ""
+msgstr "Główne"
 
 msgid "Main password"
-msgstr ""
+msgstr "Hasło główne"
 
 msgid "Maintain accurate system pricing parameters"
 msgstr "Dbanie o dokładność parametrów systemu wyceny"
@@ -7546,9 +7558,6 @@ msgstr "Imię Twojego zwierzątka"
 msgid "Name, email address, and contact number"
 msgstr "Imię i nazwisko, adres e-mail i numer telefonu"
 
-msgid "Name:"
-msgstr "Imię:"
-
 msgid "National ID card, ID book or any government-issued document which contains a photo, your name, and date of birth"
 msgstr "Krajowy dowód osobisty, inny dokument poświadczający tożsamość lub dokument wydany przez dowolne władze zawierający Twoje zdjęcie, imię i nazwisko oraz datę urodzenia"
 
@@ -7616,7 +7625,7 @@ msgid "Never Used"
 msgstr "Nigdy nie użyte"
 
 msgid "New MT5 password"
-msgstr ""
+msgstr "Nowe hasło MT5"
 
 msgid "New Password"
 msgstr "Nowe hasło"
@@ -8114,7 +8123,7 @@ msgid "Our Synthetic account allows you to trade CFDs on Synthetic Indices - our
 msgstr "Nasze konto syntetyczne umożliwia handlowanie kontraktami CFD opartymi na wskaźnikach zmienności - naszych własnych aktywach syntetycznych symulujących siły rynkowe."
 
 msgid "Our active client base is expected to reach over 790,000 total clients this year."
-msgstr ""
+msgstr "Przewidujemy, że nasza baza aktywnych klientów będzie liczyć 790 000 klientów w tym roku."
 
 msgid "Our business is founded on collaboration and we aim to build long-term, mutually beneficial relationships with our partners. However, we will never compromise our commitment to business integrity. In cases where our partners are unwilling or unable to abide by our principles, we reserve the right to withdraw from the business relationship."
 msgstr "Nasza firma jest oparta na współpracy i dążymy do zbudowania długoterminowej relacji z naszymi partnerami korzystnej dla obu stron. Jednak nigdy kosztem naszego zobowiązania do zachowania uczciwości biznesowej. Jeśli nasi partnerzy są niechętni do przestrzegania naszych zasad lub nie mogą ich przestrzegać, zastrzegamy sobie prawo do wycofania się z relacji biznesowej."
@@ -8282,7 +8291,7 @@ msgid "Password should have lower and uppercase English letters with numbers."
 msgstr "Hasło powinno się składać z małych i wielkich angielskich liter oraz cyfr."
 
 msgid "Password type"
-msgstr ""
+msgstr "Rodzaj hasła"
 
 msgid "Patented technology"
 msgstr "Opatentowana technologia"
@@ -8566,6 +8575,9 @@ msgstr "Potwierdź, że nie jesteś osobą zajmującą eksponowane stanowisko po
 msgid "Please confirm the transaction details in order to complete the transfer:"
 msgstr "Proszę potwierdzić szczegóły transakcji w celu zakończenia przelewu:"
 
+msgid "Please contact us via %1live chat%2."
+msgstr "Skontaktuj się z nami za pośrednictwem %1czatu na żywo%2."
+
 msgid "Please contact your payment agent to validate your withdrawal request."
 msgstr "Skontaktuj się ze swoim pośrednikiem płatności, aby zatwierdzić swój wniosek o wypłatę."
 
@@ -8581,8 +8593,8 @@ msgstr "Upewnij się, że Twoje dane adresowe są kompletne i dokładne."
 msgid "Please enter a valid Login ID."
 msgstr "Proszę podać poprawny login."
 
-msgid "Please enter a valid phone number, including the country code (e.g. +15417541234)."
-msgstr "Podaj prawidłowy numer telefonu, w tym kod kraju (np. +15417541234)."
+msgid "Please enter a valid phone number (e.g. +15417541234)."
+msgstr "Podaj prawidłowy numer telefonu (np. +15417541234)."
 
 msgid "Please enter date in the format DD MMM, YYYY HH:mm (local time)."
 msgstr "Wpisz datę i godzinę w formacie DD MMM, YYYY GG:mm (czasu lokalnego)."
@@ -8875,6 +8887,9 @@ msgstr "Ceny/dane dot. wyceny"
 msgid "Primary"
 msgstr "Podstawowy"
 
+msgid "Prime Brokerage Services Limited"
+msgstr "Prime Brokerage Services Limited"
+
 msgid "Prior to placing an Order, which results in opening a position, the client acknowledges that it is their responsibility to ensure that their Account Free Margin is sufficient to cover the Margin required in relation to the opening of the position (the \"Margin Requirement\"), and to continuously meet the Margin Requirement."
 msgstr "Przed złożeniem zlecenia otwarcia transakcji klient przyjmuje do wiadomości, że to jego obowiązkiem jest zapewnienie, by na koncie bez depozytu zabezpieczającego znajdowały się środki wystarczające na pokrycie depozytu wymaganego w odniesieniu do otwieranej transakcji („Wymogi dot. depozytu zabezpieczającego”) i stałe spełnianie tych wymogów."
 
@@ -9117,6 +9132,9 @@ msgstr "4 kwartał 2018"
 
 msgid "Q4 2019"
 msgstr "4 kwartał 2019"
+
+msgid "Q4 2020"
+msgstr "4 kwartał 2020"
 
 msgid "Qiwi is a payment service provider that was founded in 2007. It provides individuals with a simple way to transfer money, receive payments, and pay online. For more information, please visit %1."
 msgstr "Qiwi to dostawca usług płatniczych działający od 2007 r. Umożliwia osobom indywidualnym dokonywanie przelewów pieniężnych, otrzymywanie płatności i dokonywanie płatności on-line w prosty sposób. Odwiedź %1, aby uzyskać więcej informacji."
@@ -9446,7 +9464,7 @@ msgid "Reset Call/Reset Put"
 msgstr "Reset Call/Reset Put"
 
 msgid "Reset MT5 password"
-msgstr ""
+msgstr "Zresetuj hasło MT5"
 
 msgid "Reset Password"
 msgstr "Zresetuj hasło"
@@ -9911,7 +9929,7 @@ msgid "Severability"
 msgstr "Rozdzielność postanowień umowy"
 
 msgid "Share access to your account without any permission to trade."
-msgstr ""
+msgstr "Udostępnij dostęp do swojego konta bez uprawnienia do handlowania."
 
 msgid "Sharp prices"
 msgstr "Atrakcyjne ceny"
@@ -9963,6 +9981,12 @@ msgstr "Pokaż wszystkie szczegóły — w tym 2 dolne linie"
 
 msgid "Show all historical transactions up to"
 msgstr "Pokaż wszystkie przeszłe transakcje aż do"
+
+msgid "Show less"
+msgstr "Wyświetl mniej"
+
+msgid "Show more"
+msgstr "Wyświetl więcej"
 
 msgid "Sign out"
 msgstr "Wyloguj"
@@ -11309,8 +11333,8 @@ msgstr "Obowiązki Brokera polecającego"
 msgid "The Investor Compensation Scheme"
 msgstr "systemu rekompensat dla inwestorów"
 
-msgid "The MT5 desktop app is not supported by macOS, Windows XP, Windows 2003, and Windows Vista."
-msgstr "Aplikacja MT5 na komputery stacjonarne nie jest obsługiwana przez systemy: macOS, Windows XP, Windows 2003 i Windows Vista."
+msgid "The MT5 desktop app is not supported by Windows XP, Windows 2003, and Windows Vista."
+msgstr "Aplikacja MT5 na komputery stacjonarne nie jest obsługiwana przez systemy Windows XP, Windows 2003 i Windows Vista."
 
 msgid "The Margin Level of the client's MT5 Real Account reaches or falls below the Stop Out Level."
 msgstr "Poziom depozytu zabezpieczającego Prawdziwego konta MT5 klienta osiąga poziom równy poziomowi Stop Out lub niższy."
@@ -12347,9 +12371,6 @@ msgstr "To zobowiązanie obejmuje zakaz niezgodnych z prawem płatności lub prz
 msgid "This page is only available to logged out clients."
 msgstr "Ta strona jest dostępna tylko dla wylogowanych klientów."
 
-msgid "This page will redirect to the %1 homepage after 10 seconds."
-msgstr "W ciągu 10 sekund nastąpi przekierowanie do strony głównej %1."
-
 msgid "This policy applies to clients classified as retail or professional. Clients classified as eligible counterparties are outside the scope of this policy."
 msgstr "Polityka odnosi się do klientów uznawanych za detalicznych lub profesjonalnych. Klienci zaklasyfikowani jako podmioty kwalifikowane nie podlegają tej polityce."
 
@@ -12501,7 +12522,7 @@ msgid "To reset your password, enter the email address you used to create your a
 msgstr "Aby zresetować hasło, w polu poniżej wprowadź adres e-mail użyty przy rejestracji konta i kliknij „Zresetuj hasło”."
 
 msgid "To reset your trading or investor password, please click the button below:"
-msgstr ""
+msgstr "Aby zresetować swoje hasło handlowe lub inwestycyjne, kliknij poniższy przycisk:"
 
 msgid "To smoothly verify you, we need a better photo"
 msgstr "Aby zweryfikować Twoją tożsamość, potrzebujemy lepszego zdjęcia"
@@ -12736,6 +12757,9 @@ msgstr "Godziny handlu"
 
 msgid "Trading and Withdrawal Limits"
 msgstr "Limity handlowe i limity wypłat"
+
+msgid "Trading and deposits have been disabled on your account. Kindly allow us some time to review the account."
+msgstr "Inwestowanie i dokonywanie wpłat zostało wyłączone na Twoim koncie. Potrzebujemy trochę czasu, aby sprawdzić Twoje konto."
 
 msgid "Trading and withdrawals have been disabled on your account. Kindly %1contact customer support%2 for assistance."
 msgstr "Handlowanie i dokonywanie wpłat zostało wyłączone na Twoim koncie. %1Skontaktuj się z działem obsługi klienta%2, aby uzyskać wsparcie."
@@ -13130,6 +13154,9 @@ msgstr "Prześlij skan tyłu dowodu osobistego ze swojego komputera"
 msgid "Upload back of license from your computer"
 msgstr "Prześlij tylną część prawa jazdy ze swojego komputera"
 
+msgid "Upload document"
+msgstr "Prześlij dokument"
+
 msgid "Upload front of card from your computer"
 msgstr "Prześlij skan przodu dowodu osobistego ze swojego komputera"
 
@@ -13266,10 +13293,10 @@ msgid "Verify identity"
 msgstr "Potwierdź tożsamość"
 
 msgid "Verify main password"
-msgstr ""
+msgstr "Zweryfikuj hasło główne"
 
 msgid "Verify new MT5 password"
-msgstr ""
+msgstr "Zweryfikuj nowe hasło MT5"
 
 msgid "Verify new password"
 msgstr "Zweryfikuj nowe hasło"
@@ -13279,9 +13306,6 @@ msgstr "Wersja 49. Ostatnio zmieniana: 23-11-2020."
 
 msgid "Video Room Facility"
 msgstr "Opcja rozmowy wideo"
-
-msgid "Video tutorial"
-msgstr "Samouczek wideo"
 
 msgid "View"
 msgstr "Widok"
@@ -13557,13 +13581,16 @@ msgid "We're now ready to verify your identity"
 msgstr "Mamy już wszystko, aby zweryfikować Twoją tożsamość"
 
 msgid "We're projected to register over 1.1 billion transactions this year, bringing the total number of contracts that were bought and sold on our platform since inception to over 2.8 billion."
-msgstr ""
+msgstr "W tym roku spodziewamy się zarejestrować ponad 1,1 mln transakcji, co da łączną liczbę kupionych i sprzedanych kontraktów na naszej platformie od momentu założenia firmy wynoszącą 2,8 mln."
 
 msgid "We're really proud of this award. We're strongly committed to offering an ethical and customer-focused trading experience, and the award shows that BetOnMarkets is a trusted brand that listens and caters to customers, whether they are experienced traders or novices. We offer customer services in English, Indonesian, Russian, Chinese and Spanish."
 msgstr "Jesteśmy dumni z tej nagrody. Zależy nam na tym, by nasi klienci otrzymywali usługi wysokiej jakości. Nagroda dowodzi, że BetOnMarkets to marka godna zaufania, a nasza firma wsłuchuje się w potrzeby naszych klientów niezależnie od tego, czy są nowicjuszami czy doświadczonymi graczami. Obsługę klienta zapewniamy po angielsku, indonezyjsku, rosyjsku, chińsku i hiszpańsku."
 
+msgid "We're sorry to see you leave."
+msgstr "Przykro nam, że nas opuszczasz."
+
 msgid "We've grown in size over the years - both in terms of manpower and offices. We currently have over %1 employees across 10 offices in Malta, Dubai, Malaysia, Paraguay, Cyprus, Rwanda, and Belarus. Further growth in headcount is expected this year to cater to the increased demand in our products and services."
-msgstr ""
+msgstr "W ciągu ostatnich lat nasza firma rozwinęła się, biorąc pod uwagę zarówno liczbę pracowników, jak i liczbę biur. Obecnie zatrudniamy ponad %1 pracowników w naszych 10 biurach w Malezji, Paragwaju, Dubaju, Rwandzie oraz na Malcie, Białorusi i Cyprze. W tym roku spodziewamy się dalszego wzrostu liczny pracowników, który pozwoli nam obsłużyć rosnący popyt na nasze produkty i usługi."
 
 msgid "We've sent a secure link to %{number}"
 msgstr "Wysłaliśmy bezpieczny link na %{number}"
@@ -13931,8 +13958,8 @@ msgstr "Zyskaj wypłatę odpowiadającą mnożnikowi pomnożonemu przez wysoką 
 msgid "Win the multiplier times the high minus low."
 msgstr "Zyskaj wypłatę odpowiadającą mnożnikowi pomnożonemu przez wysoką cenę minus niską cenę."
 
-msgid "Windows"
-msgstr "Windows"
+msgid "Windows or Linux"
+msgstr "Windows lub Linux"
 
 msgid "Winning the contract"
 msgstr "Wygranie kontraktu"
@@ -13991,11 +14018,11 @@ msgstr "Wypłaty środków z Prawdziwego konta MT5 klienta można dokonać w inn
 msgid "Withdrawal via payment agent is available only if you deposit exclusively via payment agent."
 msgstr "Wypłaty poprzez pośredników płatności są dostępne tylko w przypadku dokonania wpłaty poprzez pośrednika płatności."
 
-msgid "Withdrawal: %1 to %2 working days"
-msgstr "Wypłata: od %1 do %2 dni roboczych"
+msgid "Withdrawal: %1 day"
+msgstr "Wypłata: %1 dzień"
 
-msgid "Withdrawal: %1 working day"
-msgstr "Wypłata: %1 dzień roboczy"
+msgid "Withdrawal: %1 to %2 days"
+msgstr "Wypłata: od %1 do %2 dni"
 
 msgid "Withdrawal: Not applicable"
 msgstr "Wypłata: nie dotyczy"
@@ -14255,6 +14282,12 @@ msgstr "Możesz przesyłać środki wyłącznie między kontem prowadzonym w wal
 msgid "You may open one account for each supported cryptocurrency."
 msgstr "Dla każdej obsługiwanej waluty można utworzyć jedno konto."
 
+msgid "You must also submit a proof of address."
+msgstr "Musisz dostarczyć również dokument potwierdzający adres."
+
+msgid "You must also submit a proof of identity."
+msgstr "Musisz dostarczyć również dokument potwierdzający tożsamość."
+
 msgid "You must ensure that potential clients are aware of the prohibition on insider trading based on confidential information. If you have any suspicion that such trading is taking place you must inform %1compliance@binary.com%2."
 msgstr "Musisz zapewnić, że potencjalni klienci są świadomi zakazu insider trading w oparciu o poufne informacje. Jeśli masz jakiekolwiek podejrzenia, że takie handlowanie ma miejsce, musisz poinformować %1compliance@binary.com%2."
 
@@ -14351,6 +14384,9 @@ msgstr "Zawierałeś/-aś już duże transakcje na rynkach podobnych do tych ofe
 msgid "You've made no transactions of this type up to this date."
 msgstr "Do dziś nie zrealizowałeś żadnej transakcji tego rodzaju."
 
+msgid "You've reached the limit for uploading your documents."
+msgstr "Osiągnięto limit przesyłanych dokumentów."
+
 msgid "You've worked in the financial sector for at least one year in a role that requires knowledge of your intended transactions on our platform"
 msgstr "Pracowałeś/-aś w sektorze finansowym przez co najmniej rok na stanowisku wymagającym wiedzy o transakcjach, które chcesz zawierać na naszej platformie"
 
@@ -14393,8 +14429,8 @@ msgstr "Na Twoim koncie nie odnotowano żadnej aktywności związanej z logowani
 msgid "Your account is fully authenticated and your withdrawal limits have been lifted."
 msgstr "Twoje konto jest w pełni zweryfikowane, a Twój limit wypłat został zwiększony."
 
-msgid "Your account is now closed"
-msgstr "Twoje konto zostało zamknięte"
+msgid "Your account is now deactivated."
+msgstr "Twoje konto zostało dezaktywowane."
 
 msgid "Your account is restricted. Kindly %1contact customer support%2 for assistance."
 msgstr "Na Twoje konto zostały nałożone ograniczenia. %1Skontaktuj się z obsługą klienta%2, aby uzyskać pomoc."
@@ -14435,8 +14471,14 @@ msgstr "Aktualizacja może zająć komputerowi kilka sekund"
 msgid "Your demo account balance is currently %1 or less. You may top up your account with an additional %2."
 msgstr "Saldo Twojego konta demo wynosi obecnie %1 lub mniej. Możesz zasilić swoje konto dodatkową kwotą %2."
 
-msgid "Your document is being reviewed, please check back in 1-3 days"
-msgstr "Twój dokument jest weryfikowany, sprawdź ponownie za 1-3 dni"
+msgid "Your document is being reviewed, please check back in 1-3 days."
+msgstr "Twój dokument jest weryfikowany, sprawdź ponownie za 1-3 dni."
+
+msgid "Your document is being reviewed, please check back in 1-3 days. You must also submit a proof of address."
+msgstr "Twój dokument jest weryfikowany, sprawdź ponownie za 1-3 dni. Musisz dostarczyć również dokument potwierdzający adres."
+
+msgid "Your document is being reviewed, please check back in 1-3 days. You must also submit a proof of identity."
+msgstr "Twój dokument jest weryfikowany, sprawdź ponownie za 1-3 dni. Musisz dostarczyć również dokument potwierdzający tożsamość."
 
 msgid "Your face is needed in the selfie"
 msgstr "Twoja twarz musi znajdować się na selfie"
@@ -14495,6 +14537,9 @@ msgstr "Twoje potwierdzenie tożsamości zostało zweryfikowane"
 msgid "Your proof of identity has expired"
 msgstr "Twoje potwierdzenie tożsamości jest już nieważne"
 
+msgid "Your proof of identity submission failed because:"
+msgstr "Przesłanie dokumentu potwierdzającego tożsamość nie powiodło się z powodu:"
+
 msgid "Your proof of identity was submitted successfully"
 msgstr "Twoje potwierdzenie tożsamości zostało przesłane"
 
@@ -14551,9 +14596,6 @@ msgstr "Twój limit wypłat wynosi %2 %1."
 
 msgid "You’ll be logged out automatically."
 msgstr "Nastąpi automatyczne wylogowanie."
-
-msgid "You’ve successfully closed your account. We’ll send a confirmation email to %1."
-msgstr "Twoje konto zostało zamknięte. Wyślemy potwierdzenie na adres e-mail: %1."
 
 msgid "ZEC vs US dollar"
 msgstr "ZEC vs dolar amerykański"
