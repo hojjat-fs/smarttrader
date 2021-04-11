@@ -182,7 +182,7 @@ const Cashier = (() => {
     const applyStateLockLogic = (status, deposit, withdraw) => {
         // statuses to check with their corresponding selectors
         const statuses_to_check = [
-            { lock: 'cashier_locked', selectors: [deposit, withdraw] },
+            { lock: 'cashier_locked', selectors: [withdraw] },
             { lock: 'withdrawal_locked', selectors: [withdraw] },
             { lock: 'no_withdrawal_or_trading', selectors: [withdraw] },
             { lock: 'unwelcome', selectors: [deposit] },
