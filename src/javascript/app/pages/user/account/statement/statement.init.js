@@ -104,6 +104,11 @@ const StatementInit = (() => {
                 //     .on('click', () => { StatementUI.exportCSV(); });
             }
         }
+
+        if (filter === 'deposit' || filter === 'withdrawal'){
+            document.querySelectorAll('.details').forEach(item => item.remove());
+        }
+
         showLocalTimeOnHover('td.date');
     };
 
