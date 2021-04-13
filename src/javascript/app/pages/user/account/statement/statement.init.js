@@ -105,7 +105,7 @@ const StatementInit = (() => {
             }
         }
 
-        if (filter === 'deposit' || filter === 'withdrawal'){
+        if (['deposit', 'withdrawal'].includes(filter)){
             document.querySelectorAll('.details').forEach(item => item.remove());
         }
 
