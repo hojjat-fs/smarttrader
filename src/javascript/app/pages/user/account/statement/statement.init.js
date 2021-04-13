@@ -106,7 +106,7 @@ const StatementInit = (() => {
         }
 
         if (['deposit', 'withdrawal'].includes(filter)){
-            document.querySelectorAll('.details').forEach(item => item.remove());
+            document.querySelectorAll('#statement-table .details').forEach(item => item.remove());
         }
 
         showLocalTimeOnHover('td.date');
