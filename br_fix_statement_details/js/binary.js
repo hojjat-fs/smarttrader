@@ -32444,8 +32444,8 @@ var StatementInit = function () {
             }
         }
 
-        if (filter === 'deposit' || filter === 'withdrawal') {
-            document.querySelectorAll('.details').forEach(function (item) {
+        if (['deposit', 'withdrawal'].includes(filter)) {
+            document.querySelectorAll('#statement-table .details').forEach(function (item) {
                 return item.remove();
             });
         }
