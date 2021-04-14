@@ -180,14 +180,15 @@ const Cashier = (() => {
     const setBtnDisable = selector => $(selector).addClass('button-disabled').click(false);
 
     const applyStateLockLogic = (status, deposit, withdraw) => {
+        const is_uk_client = Client.get('landing_company_shortcode') === 'iom';
+
         // statuses to check with their corresponding selectors
         const statuses_to_check = [
-            { lock: 'cashier_locked', selectors: [withdraw] },
+            { lock: 'cashier_locked', selectors: is_uk_client ? [withdraw] : [deposit, withdraw] },
             { lock: 'withdrawal_locked', selectors: [withdraw] },
             { lock: 'no_withdrawal_or_trading', selectors: [withdraw] },
             { lock: 'unwelcome', selectors: [deposit] },
         ];
-
         statuses_to_check.forEach(item => {
             if (status.includes(item.lock)) {
                 item.selectors.forEach(selector => setBtnDisable(selector));
