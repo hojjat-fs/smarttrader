@@ -180,7 +180,7 @@ const Cashier = (() => {
     const setBtnDisable = selector => $(selector).addClass('button-disabled').click(false);
 
     const applyStateLockLogic = (status, deposit, withdraw) => {
-        const is_uk_client = Client.get('landing_company_shortcode') === 'iom';
+        const is_uk_client = Client.get('residence') === 'gb';
 
         // statuses to check with their corresponding selectors
         const statuses_to_check = [
