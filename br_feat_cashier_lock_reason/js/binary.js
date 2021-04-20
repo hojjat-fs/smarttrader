@@ -16244,7 +16244,7 @@ var Cashier = function () {
     };
 
     var applyStateLockLogic = function applyStateLockLogic(status, deposit, withdraw) {
-        var is_uk_client = Client.get('landing_company_shortcode') === 'iom';
+        var is_uk_client = Client.get('residence') === 'gb';
 
         // statuses to check with their corresponding selectors
         var statuses_to_check = [{ lock: 'cashier_locked', selectors: is_uk_client ? [withdraw] : [deposit, withdraw] }, { lock: 'withdrawal_locked', selectors: [withdraw] }, { lock: 'no_withdrawal_or_trading', selectors: [withdraw] }, { lock: 'unwelcome', selectors: [deposit] }];
