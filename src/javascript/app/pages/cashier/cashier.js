@@ -185,6 +185,7 @@ const Cashier = (() => {
         // statuses to check with their corresponding selectors
         const statuses_to_check = [
             { lock: 'cashier_locked', selectors: is_uk_client ? [withdraw] : [deposit, withdraw] },
+            { lock: 'deposit_locked', selectors: [deposit] },
             { lock: 'withdrawal_locked', selectors: [withdraw] },
             { lock: 'no_withdrawal_or_trading', selectors: [withdraw] },
             { lock: 'unwelcome', selectors: [deposit] },
