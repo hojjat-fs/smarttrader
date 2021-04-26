@@ -16247,7 +16247,7 @@ var Cashier = function () {
         var is_uk_client = Client.get('residence') === 'gb';
 
         // statuses to check with their corresponding selectors
-        var statuses_to_check = [{ lock: 'cashier_locked', selectors: is_uk_client ? [withdraw] : [deposit, withdraw] }, { lock: 'withdrawal_locked', selectors: [withdraw] }, { lock: 'no_withdrawal_or_trading', selectors: [withdraw] }, { lock: 'unwelcome', selectors: [deposit] }];
+        var statuses_to_check = [{ lock: 'cashier_locked', selectors: is_uk_client ? [withdraw] : [deposit, withdraw] }, { lock: 'deposit_locked', selectors: [deposit] }, { lock: 'withdrawal_locked', selectors: [withdraw] }, { lock: 'no_withdrawal_or_trading', selectors: [withdraw] }, { lock: 'unwelcome', selectors: [deposit] }];
         statuses_to_check.forEach(function (item) {
             if (status.includes(item.lock)) {
                 item.selectors.forEach(function (selector) {
