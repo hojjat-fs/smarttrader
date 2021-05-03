@@ -1,6 +1,7 @@
 const BinaryPjax             = require('../../base/binary_pjax');
 const Client                 = require('../../base/client');
 const BinarySocket           = require('../../base/socket');
+const Header                 = require('../../base/header');
 const Dialog                 = require('../../common/attach_dom/dialog');
 const Currency               = require('../../common/currency');
 const FormManager            = require('../../common/form_manager');
@@ -312,7 +313,8 @@ const DepositWithdraw = (() => {
             if (cashier_type === 'withdraw') {
                 const limit = State.getResponse('get_limits.remainder');
                 if (typeof limit !== 'undefined' && +limit < Currency.getMinWithdrawal(Client.get('currency'))) {
-                    showError('custom_error', localize('You have reached the withdrawal limit.'));
+                    showError('custom_error', localize('You have reached the withdrawal limit. Please upload your proof of identity and address to lift your withdrawal limit and proceed with your withdrawal.'));
+                    BinarySocket.send({ get_account_status: 1 }).then(() => Header.displayAccountStatus());
                     return;
                 }
             }
