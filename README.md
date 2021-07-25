@@ -15,7 +15,7 @@ This repository contains the static HTML, Javascript, CSS, and images content of
 
 - [Scripts](scripts/README.md)
 - [Javascript](src/javascript/README.md)
-- [Sass](sasrc/sass/README.mdss)
+- [Sass](src/sass/README.md)
 - [Templates](src/templates/README.md)
 
 ## Pre-installation
