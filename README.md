@@ -2,7 +2,8 @@
 
 This repository contains the static HTML, Javascript, CSS, and images content of the [Binary.com](http://www.binary.com) website.
 
-![build](https://img.shields.io/circleci/build/github/binary-com/binary-static) ![node](https://img.shields.io/badge/node-%3E%3D10.14.2-blue.svg) ![npm](https://img.shields.io/badge/npm-%3E%3D6.9.0-blue.svg) ![sass](https://img.shields.io/badge/Sass-CC6699?style=flat&logo=sass&logoColor=white)
+![build](https://img.shields.io/circleci/build/github/binary-com/binary-static) ![node](https://img.shields.io/badge/node-%3E%3D12.22.3-blue.svg) ![npm](https://img.shields.io/badge/npm-%3E%3D6.14.13-blue.svg) ![sass](https://img.shields.io/badge/Sass-CC6699?style=flat&logo=sass&logoColor=white)
+
 **In this document**
 
 - [Other Documents](#other-documents)
@@ -24,7 +25,7 @@ Before running or contribute to this project, you need to have the setup of the 
 
 - Ruby, RubyGems
 - Sass (`sudo gem install sass`)
-- Node.js (10.14.2 or higher is recommended)
+- Node.js (12.22.3 is recommended)
 - NPM (see <https://nodejs.org/en/download/package-manager/>)
 - Grunt (`sudo npm install -g grunt-cli`)
 
@@ -60,7 +61,7 @@ Before running or contribute to this project, you need to have the setup of the 
 
 6.  **Open the source code and start editing!**
 
-    Your site is now running at `http://localhost:3000`!
+    Your site is now running at `http://localhost:443`!
 
 ## Preview on your local machine
 

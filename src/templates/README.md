@@ -12,7 +12,7 @@
 ## Rendering conditionally
 
 - Use `{condition && <el/> ...</el>}` syntax to conditionally render an element.
-- Use `<el attr={value || undefined}` to conditionally render an attribute, React
+- Use `<el attr={value || undefined}` to conditionally render an attribute, React omits attributes with null or undefined values.
 
 ## Using translation
 
@@ -29,7 +29,6 @@ it.dangreouslyRenderHtml('<a href="https://binary.com"></a>');
 
 - Do NOT use `<Element attributeName={true} />`; just use `<Element attributeName />`.
 - Use destructuring to capture parameters if needed.
-  omits attributes with null or undefined values.
 - Components with less than four arguments should stay list all in one line, for example:
 
 ```js
