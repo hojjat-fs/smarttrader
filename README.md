@@ -2,20 +2,65 @@
 
 This repository contains the static HTML, Javascript, CSS, and images content of the [Binary.com](http://www.binary.com) website.
 
+![build](https://img.shields.io/circleci/build/github/binary-com/binary-static) ![node](https://img.shields.io/badge/node-%3E%3D10.14.2-blue.svg) ![npm](https://img.shields.io/badge/npm-%3E%3D6.9.0-blue.svg) ![sass](https://img.shields.io/badge/Sass-CC6699?style=flat&logo=sass&logoColor=white)
 **In this document**
 
 - [Other Documents](#other-documents)
 - [Pre-installation](#pre-installation)
-- [Test link deployment](#test-link-deployment)
 - [Preview on your local machine](#preview-on-your-local-machine)
+- [Test link deployment](#test-link-deployment)
 - [Manage releases](#manage-releases)
 
 ## Other Documents
 
-- [scripts/README.md](scripts)
-- [src/javascript/README.md](javascript)
-- [src/sass/README.md](sass)
-- [src/templates/README.md](templates)
+- [Scripts](scripts/README.md)
+- [Javascript](src/javascript/README.md)
+- [Sass](sasrc/sass/README.mdss)
+- [Templates](src/templates/README.md)
+
+## Pre-installation
+
+Before running or contribute to this project, you need to have the setup of the following packages in your environment
+
+- Ruby, RubyGems
+- Sass (`sudo gem install sass`)
+- Node.js (10.14.2 or higher is recommended)
+- NPM (see <https://nodejs.org/en/download/package-manager/>)
+- Grunt (`sudo npm install -g grunt-cli`)
+
+## Quickstart
+
+1.  **Fork the project**
+
+    In order to work on your own version of the Binary.com application, please fork the project to your own repo.
+
+2.  **Clone using SSH**
+
+    ```sh
+    git clone git@github.com:your-github-username/binary-com.git
+    ```
+
+3.  **Enter project directory**
+
+    ```sh
+    cd binary-com
+    ```
+
+4.  **Install your dependencies:**
+
+    ```sh
+    npm ci
+    ```
+
+5.  **To start developing:**
+
+    ```sh
+    npm run start
+    ```
+
+6.  **Open the source code and start editing!**
+
+    Your site is now running at `http://localhost:3000`!
 
 ## Preview on your local machine
 
@@ -24,18 +69,7 @@ This repository contains the static HTML, Javascript, CSS, and images content of
 - To test changes made to templates, you need to re-compile them:
   - `grunt shell:compile_dev` to re-compile all templates.
   - `grunt shell:compile_dev --path=about-us` to re-compile only template(s) which serve about-us path in URL.
-- To fix eslint errors run `npm run eslint`## Pre-installation
-
-In order to work on your own version of the Binary.com Javascript and CSS, please **fork this project**.
-
-Before running or contribute to this project, you need to have the setup of the following packages in your environment
-
-- Ruby, RubyGems
-- Sass (`sudo gem install sass`)
-- Node.js (10.14.2 or higher is recommended)
-- NPM (see <https://nodejs.org/en/download/package-manager/>)
-- Go to project root, then run `npm install`
-- Grunt (`sudo npm install -g grunt-cli`)
+- To fix eslint errors run `npm run eslint`
 
 ## Test link deployment
 
@@ -122,3 +156,8 @@ Push the tag:
 ```
 git push origin staging_v20191010_0
 ```
+
+## Manage translations
+
+- Automatic: this will be done automatically with [Github action](.github/workflows/sync_crowdin_translations.md)
+- Manual: If you need to add translation manually use [manual translation doc](scripts/README.md#Updating-the-translations)
