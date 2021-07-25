@@ -61,7 +61,7 @@ Before running or contribute to this project, you need to have the setup of the 
 
 6.  **Open the source code and start editing!**
 
-    Your site is now running at `http://localhost:443`!
+    Your site is now running at [https://localhost:443](https://localhost:443)
 
 ## Preview on your local machine
 
@@ -99,19 +99,19 @@ You can manually deploy your test link using gh-pages with the following configu
 
 ### Deploy js/css and template changes together
 
-```
+```sh
 grunt dev
 ```
 
 ### Deploy only js/css changes
 
-```
+```sh
 grunt deploy
 ```
 
 ### Deploy some template changes
 
-```
+```sh
 grunt dev --path=about-us
 ```
 
@@ -140,7 +140,7 @@ In order to use your custom domain, please put it in a file named `CNAME` inside
 
 ## Manage releases
 
-```
+```sh
 git tag ${RELEASE_TARGET}_vYYYYMMDD_${INTEGER} -m 'some message'
 ```
 
@@ -148,13 +148,13 @@ git tag ${RELEASE_TARGET}_vYYYYMMDD_${INTEGER} -m 'some message'
 
 Example:
 
-```
+```sh
 git tag production_v20191010_0 -m 'release fixes to production'
 ```
 
 Push the tag:
 
-```
+```sh
 git push origin staging_v20191010_0
 ```
 
